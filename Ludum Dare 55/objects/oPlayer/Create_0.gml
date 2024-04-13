@@ -11,7 +11,9 @@ movement = {
 	movSpd : _movSpd,
 	jumpSpd : _jumpSpd * -1,
 	momentum : _movSpd / (FPS * 0.15),
-	grav : _jumpDistance / (sqr(FPS * 0.35))			//a = s/t²
+	grav : _jumpDistance / (sqr(FPS * 0.275)),		//a = s/t²
+	falling : false,
+	longJump : time_source_create(time_source_game, 0.45, time_source_units_seconds, startFall)
 }
 
 //State check

@@ -35,6 +35,7 @@
   },
   "resources": [
     {"id":{"name":"oPlayer","path":"objects/oPlayer/oPlayer.yy",},},
+    {"id":{"name":"Player","path":"scripts/Player/Player.yy",},},
     {"id":{"name":"oSystem","path":"objects/oSystem/oSystem.yy",},},
     {"id":{"name":"Collisions","path":"scripts/Collisions/Collisions.yy",},},
     {"id":{"name":"oCollision","path":"objects/oCollision/oCollision.yy",},},

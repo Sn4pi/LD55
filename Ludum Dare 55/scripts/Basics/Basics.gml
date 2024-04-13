@@ -6,6 +6,7 @@ function input() {
 	
 	interact = keyboard_check_pressed(ord("E"));
 	space = keyboard_check_pressed(vk_space);
+	spaceRelease = keyboard_check_released(vk_space);
 	esc = keyboard_check_pressed(vk_escape);
 	
 	//Mouse
