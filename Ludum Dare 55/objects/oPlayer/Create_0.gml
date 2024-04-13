@@ -1,6 +1,8 @@
 /// @description Init Player
 //Animation
 image_speed = 0;
+image_xscale = 0.5;
+image_yscale = 0.5;
 
 enum pSprites {
 	idle = 0,
@@ -27,9 +29,9 @@ animation = {
 	idleSpd : 8 / FPS,
 	jumpSpd : 10 / FPS,
 	jumpImg : [5, 9, 11, 13],
-	throwSpd : 10 / FPS,
+	throwSpd : 13 / FPS,
 	throwImg : [3, 6],
-	throwChSpd : 10 / FPS,
+	throwChSpd : 13 / FPS,
 	throwChImg : [3, 8],
 	teleSpd : 12 / FPS,
 	teleImg: [9, 12],
