@@ -16,6 +16,7 @@ function input() {
 	lmb = mouse_check_button_pressed(mb_left);
 	lmbReleased = mouse_check_button_released(mb_left);
 	rmb = mouse_check_button_pressed(mb_right);
+	rmbReleased = mouse_check_button_released(mb_right);
 	wheelUp = mouse_wheel_up();
 	wheelDown = mouse_wheel_down();
 }

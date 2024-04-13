@@ -2,13 +2,10 @@
 input();
 
 //Check if grounded
-if (place_meeting(x, y + 1, oCollision)) {
-	grounded = true;
-	movement.falling = false;
-}
-else grounded = false;
-
+checkGrounded();
 //Movement
 pMovement();
+//Talisman Action
+pTalisman();
 //Animation
 pAnimation();

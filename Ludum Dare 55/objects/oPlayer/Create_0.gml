@@ -15,6 +15,18 @@ movement = {
 	falling : false,
 	longJump : time_source_create(time_source_game, 0.45, time_source_units_seconds, startFall)
 }
-
-//State check
 grounded = true;
+
+//Talisman
+enum talisman {
+	inPocket,
+	aim,
+	thrown
+};
+abilityState = talisman.inPocket;
+charged = false;
+setCharge = function() {
+	with (oPlayer) charged = true;
+}
+chargeCd = 2.5;
+chargeTimer = time_source_create(time_source_game, chargeCd, time_source_units_seconds, setCharge);
