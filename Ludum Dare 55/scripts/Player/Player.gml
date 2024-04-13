@@ -3,12 +3,6 @@ function startFall() {
 }
 
 function pMovement() {
-	//Horizontal movement
-	var _hsp;
-	_hsp = right - left;
-	movement.hspd = Approach(movement.hspd, _hsp * movement.movSpd, movement.momentum * delta);
-
-
 	//Jump / Vertical movement
 	if (grounded && space) {
 		movement.vspd = movement.jumpSpd;
@@ -43,6 +37,7 @@ function pTalisman() {
 		case talisman.inPocket:
 			if (rmb) {
 				abilityState = talisman.aim;
+				charged = false;
 				slowMo = 0.1;
 				time_source_start(chargeTimer);
 			}
@@ -50,12 +45,13 @@ function pTalisman() {
 		
 		//Aim and throw
 		case talisman.aim:
+			var _slowMoFade = 0.9 / (chargeCd * 1.5 * FPS);
+			slowMo = Approach(slowMo, 1.0, _slowMoFade);
 			if (rmbReleased) {
-				abilityState = talisman.thrown;
 				slowMo = 1.0;
 				
-				var _talisman = instance_create_depth(x, y, depth - 1, oTalisman);
-				var _dir = point_direction(x, y, mouse_x, mouse_y);
+				var _talisman = instance_create_depth(x, y - sprite_get_height(sprite_index) / 2, depth - 1, oTalisman);
+				var _dir = point_direction(x, y - sprite_get_height(sprite_index) / 2, mouse_x, mouse_y);
 				_talisman.image_angle = _dir;
 				_talisman.direction = _dir;
 				
@@ -86,7 +82,7 @@ function pTalisman() {
 				}
 				x = _newX;
 				y = _newY;
-				movement.vspd = movement.jumpSpd;
+				movement.vspd = movement.jumpSpd * 0.75;
 				movement.falling = true;
 				
 				with (oTalisman) instance_destroy();
@@ -99,7 +95,49 @@ function pTalisman() {
 }
 
 function pAnimation() {
-	if (movement.hspd != 0) image_xscale = sign(movement.hspd);
+	//Death
+	if (hp <= 0) {
+		if (sprite_index != animation.spr[pSprites.death]) sprite_index = animation.spr[pSprites.death];
+		image_index = Approach(image_index, sprite_get_number(sprite_index), animation.deathSpd);
+	}
+	else {
+		//Turn around
+		if (mouse_x != x) image_xscale = sign(mouse_x - x);
+		
+		//Talisman animation states
+		switch (abilityState) {
+			case talisman.inPocket:
+				
+			break;
+			
+			case talisman.aim:
+				if (sprite_index != animation.spr[pSprites.throwNormal] && !charged) sprite_index = animation.spr[pSprites.throwNormal];
+				else if (sprite_index != animation.spr[pSprites.throwCharged] && charged) {sprite_index = animation.spr[pSprites.throwCharged]; image_index = animation.throwChImg[0];}
+				
+				//Aim
+				if (!instance_exists(oTalisman)) {
+					image_index = Approach(image_index, animation.throwImg[0], animation.throwImg);
+				}
+				//Throw
+				else {
+					//Normal
+					if (!charged) {
+						image_index = Approach(image_index, animation.throwImg[1], animation.throwImg);
+						if (image_index == animation.throwImg[1]) abilityState = talisman.thrown;
+					}
+					else {
+						image_index = Approach(image_index, animation.throwChImg[1], animation.throwChImg);
+						if (image_index == animation.throwChImg[1]) abilityState = talisman.thrown;
+					}
+				}
+				
+			break;
+			
+			case talisman.thrown:
+				
+			break;
+		}
+	}
 }
 
 function pDamage() {

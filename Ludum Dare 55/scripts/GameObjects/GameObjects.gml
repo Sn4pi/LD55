@@ -28,6 +28,7 @@ function collisionsY(_vspd) {
 	if (array_length(_collisions) > 0) {
 		if (_collisions[0].object_index == oBouncyWall) {
 			_vspd *= -1.5;
+			_vspd = clamp(_vspd, movement.jumpSpd * 2, abs(_vspd));
 		}
 		else _vspd = 0;
 	}
@@ -37,7 +38,7 @@ function collisionsY(_vspd) {
 
 //Ground below?
 function checkGrounded() {
-	if (place_meeting(x, y + 1, oCollision) || place_meeting(x, y + 1, oSemiWall)) {
+	if (place_meeting(x, y + 1, oCollision) || (place_meeting(x, y + 1, oSemiWall) && !place_meeting(x, y - 1, oSemiWall) && movement.vspd >= 0)) {
 		grounded = true;
 		if (object_index == oPlayer) {
 			if (!place_meeting(x, y + 1, oBouncyWall)) movement.vspd = 0;
