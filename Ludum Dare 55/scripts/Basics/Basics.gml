@@ -8,6 +8,7 @@ function input() {
 	space = keyboard_check_pressed(vk_space);
 	spaceRelease = keyboard_check_released(vk_space);
 	esc = keyboard_check_pressed(vk_escape);
+	restart = keyboard_check_pressed(vk_enter) || keyboard_check_pressed(ord("R"));
 	
 	//Mouse
 	mx = device_mouse_x(0);
@@ -83,6 +84,10 @@ function Chance(percent) {
 	//      Chance(0.7);    -> Returns true 70% of the time
  
 	return percent > random(1);
+}
+
+function doNothing() {
+	
 }
 
 function draw_text_outline(_x, _y, _str, _outwidth = 1, _outcol = c_black, _outfidelity = 4, _separation = -1, _width = guiW) {

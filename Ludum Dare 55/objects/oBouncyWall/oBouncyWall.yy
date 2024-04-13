@@ -1,7 +1,7 @@
 {
   "resourceType": "GMObject",
   "resourceVersion": "1.0",
-  "name": "oCollision",
+  "name": "oBouncyWall",
   "eventList": [
     {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,},
   ],
@@ -11,7 +11,10 @@
     "name": "Environment",
     "path": "folders/Objects/Environment.yy",
   },
-  "parentObjectId": null,
+  "parentObjectId": {
+    "name": "oCollision",
+    "path": "objects/oCollision/oCollision.yy",
+  },
   "persistent": false,
   "physicsAngularDamping": 0.1,
   "physicsDensity": 0.5,

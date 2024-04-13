@@ -35,11 +35,6 @@ function pMovement() {
 			movement.vspd = Approach(movement.vspd, movement.jumpSpd * -1, movement.grav * delta);
 		}
 	}
-
-
-	//Move Player
-	movement.hspd = collisionsX(movement.hspd);
-	movement.vspd = collisionsY(movement.vspd);
 }
 
 function pTalisman() {
@@ -105,4 +100,14 @@ function pTalisman() {
 
 function pAnimation() {
 	if (movement.hspd != 0) image_xscale = sign(movement.hspd);
+}
+
+function pDamage() {
+	if (time_source_get_state(hurt) != time_source_state_active) {
+		time_source_start(hurt);
+	
+		hp = Approach(hp, 0, 1);
+		movement.vspd = movement.jumpSpd;
+		movement.falling = true;
+	}
 }

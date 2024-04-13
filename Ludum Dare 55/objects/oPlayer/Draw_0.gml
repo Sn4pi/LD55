@@ -11,3 +11,9 @@ if (abilityState == talisman.aim) {
 	draw_set_alpha(1.0);
 	draw_line_width_color(x, y, x + lengthdir_x(_lenNow, _dir), y + lengthdir_y(_lenNow, _dir), 3, c_green, c_green);
 }
+
+if (time_source_get_state(hurt) == time_source_state_active) {
+	var _hurtAlpha = time_source_get_time_remaining(hurt) / 0.4;
+	var _hurtCol = c_red;
+	draw_sprite_ext(sprite_index, image_index, x, y, image_xscale, image_yscale, image_angle, _hurtCol, _hurtAlpha);
+}

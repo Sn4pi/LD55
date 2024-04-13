@@ -38,11 +38,22 @@ if (!collision_line(x, y, x + lengthdir_x(movement.spd, direction), y + lengthdi
 //Collision -> Iterate and stop right at wall
 else {
 	var i = movement.spd;
+	var _wall = collision_line(x, y, x + lengthdir_x(i, direction), y + lengthdir_y(i, direction), oCollision, 1, 1);
+	
 	while (i > 0 && collision_line(x, y, x + lengthdir_x(i, direction), y + lengthdir_y(i, direction), oCollision, 1, 1)) {
 		i--;
 	}
 	x = x + lengthdir_x(i, direction) * delta;
 	y = y + lengthdir_y(i, direction) * delta;
-	movement.spd = 0;
-	collision = true;
+	
+	//Check which kind of wall it is
+	if (_wall.object_index == oBouncyWall) {
+		movement.spd = movement.movSpd;
+		if (place_meeting(x + 1, y, _wall) || place_meeting(x - 1, y, _wall)) direction = -direction + 180;
+		else if (place_meeting(x, y + 1, _wall) || place_meeting(x, y - 1, _wall)) direction = -direction;
+	}
+	else {
+		movement.spd = 0;
+		collision = true;
+	}
 }
