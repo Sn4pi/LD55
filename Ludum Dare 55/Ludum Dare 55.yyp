@@ -67,6 +67,7 @@
     {"id":{"name":"tl3","path":"tilesets/tl3/tl3.yy",},},
     {"id":{"name":"rmInit","path":"rooms/rmInit/rmInit.yy",},},
     {"id":{"name":"sPlayerThrow","path":"sprites/sPlayerThrow/sPlayerThrow.yy",},},
+    {"id":{"name":"Particles","path":"scripts/Particles/Particles.yy",},},
     {"id":{"name":"GameObjects","path":"scripts/GameObjects/GameObjects.yy",},},
     {"id":{"name":"sWall","path":"sprites/sWall/sWall.yy",},},
     {"id":{"name":"sPlayerJump","path":"sprites/sPlayerJump/sPlayerJump.yy",},},

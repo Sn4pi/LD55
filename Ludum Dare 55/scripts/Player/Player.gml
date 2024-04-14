@@ -159,35 +159,15 @@ function pAnimation() {
 				if (sprite_index == animation.spr[pSprites.teleport]) {
 					if (image_index < animation.teleImg[0]) image_index = Approach(image_index, animation.teleImg[0], animation.teleSpd);
 					else if (image_index == animation.teleImg[0] && instance_exists(oTalisman)) {
-						/*var _newX = oTalisman.x;
-						var _newY = oTalisman.y;
-						if (place_meeting(_newX, _newY, oCollision)) {
-							var _dir = point_direction(x, y, oTalisman.x, oTalisman.y);
-							var _colList = ds_list_create();
-							var _collision = collision_rectangle_list(_newX - 24, _newY - 74, _newX + 24, _newY, oCollision, 1, 1, _colList, 1);
-							if (_collision > 0) {
-								for (var i = 0; i < _collision; ++i;) {
-									var _bbox_side = _colList[| i].bbox_right;
-									var _bbox_side2 = _colList[| i].bbox_bottom;
-									if (_colList[| i].x + _colList[| i].sprite_width / 2 > x) {
-										_bbox_side = _colList[| i].bbox_left;
-									}
-									if (_colList[| i].y + _colList[| i].sprite_height / 2 > y) {
-										_bbox_side2 = _colList[| i].bbox_top;
-									}
-									
-									_newX = _bbox_side + 24 * sign(x - _colList[| i].x);
-									if (_bbox_side2 == _colList[| i].bbox_bottom) _newY = _bbox_side2 + 74 * sign(y - _colList[| i].y);
-									else _newY = _bbox_side2 + 1 * sign(y - _colList[| i].y);
-									if (collision_rectangle(_newX - 24, _newY - 74, _newX + 24, _newY, oCollision, 1, 1) == noone) i = _collision;
-								}
-							}
-							ds_list_destroy(_colList);
-						}
-						x = _newX;
-						y = _newY;*/
 						var _len = point_distance(x, y, oTalisman.x, oTalisman.y);
 						var _dir = point_direction(x, y, oTalisman.x, oTalisman.y);
+						
+						//PARTICLES
+						partTeleport(FPS * 0.2, _dir, _len / sprite_get_width(sTeleport), irandom(sprite_get_number(sTeleport) - 1));
+						part_emitter_region(parsys, parem, x, x, y, y, ps_shape_line, ps_distr_linear);
+						part_emitter_burst(parsys, parem, pTeleport, 1);
+						
+						
 						move_and_collide(lengthdir_x(_len, _dir), lengthdir_y(_len, _dir), oCollision, 8);
 						with (oTalisman) instance_destroy();
 						
