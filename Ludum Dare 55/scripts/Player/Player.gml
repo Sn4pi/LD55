@@ -29,7 +29,10 @@ function pMovement() {
 			else if (time_source_get_state(movement.longJump) == time_source_state_paused) time_source_resume(movement.longJump);
 			
 			var _gravAmplifier = 1.0;
-			if (sprite_index == animation.spr[pSprites.teleport] || time_source_get_period(movement.longJump) == movement.floatDuration) _gravAmplifier = 0.0;
+			if (sprite_index == animation.spr[pSprites.teleport] || time_source_get_period(movement.longJump) == movement.floatDuration) {
+				
+				_gravAmplifier = 0.0;
+			}
 			//First half of the uptime he moves up faster
 			if ((1 - time_source_get_time_remaining(movement.longJump) / time_source_get_period(movement.longJump)) < 0.5) movement.vspd = Approach(movement.vspd, movement.jumpSpd * -1, movement.grav * 0.66 * _gravAmplifier * delta);
 			//then there should be a state of "float"
@@ -171,7 +174,7 @@ function pAnimation() {
 									
 									_newX = _bbox_side + 24 * sign(x - _colList[| i].x);
 									if (_bbox_side2 == _colList[| i].bbox_bottom) _newY = _bbox_side2 + 74 * sign(y - _colList[| i].y);
-									else _newY = _bbox_side2 + 2 * sign(y - _colList[| i].y);
+									else _newY = _bbox_side2 + 1 * sign(y - _colList[| i].y);
 									if (collision_rectangle(_newX - 24, _newY - 74, _newX + 24, _newY, oCollision, 1, 1) == noone) i = _collision;
 								}
 							}
