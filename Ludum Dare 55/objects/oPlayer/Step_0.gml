@@ -1,5 +1,7 @@
 /// @description Main Gameplay
 input();
+//Animation
+pAnimation();
 //Check if grounded
 checkGrounded();
 //ALIVE
@@ -23,6 +25,3 @@ else if (hp <= 0) {
 
 //Move Player
 movement.vspd = collisionsY(movement.vspd);
-
-//Animation
-pAnimation();

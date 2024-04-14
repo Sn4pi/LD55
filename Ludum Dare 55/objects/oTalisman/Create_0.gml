@@ -16,6 +16,7 @@ collision = false;
 
 //Die after specific time
 die = function() {
+	with (oPlayer) abilityState = talisman.inPocket;
 	instance_destroy();
 }
 deathTimer = time_source_create(time_source_game, 5, time_source_units_seconds, die);

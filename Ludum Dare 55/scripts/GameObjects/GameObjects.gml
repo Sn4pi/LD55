@@ -15,7 +15,7 @@ function collisionsX(_hspd) {
 	
 	if (array_length(_collisions) > 0) {
 		if (_collisions[0].object_index == oBouncyWall) {
-			_hspd *= -1.5;
+			_hspd *= -1.0;
 		}
 		else _hspd = 0;
 	}
@@ -27,8 +27,7 @@ function collisionsY(_vspd) {
 	var _collisions = move_and_collide(0, _vspd * delta, oCollision, 8);
 	if (array_length(_collisions) > 0) {
 		if (_collisions[0].object_index == oBouncyWall) {
-			_vspd *= -1.5;
-			_vspd = clamp(_vspd, movement.jumpSpd * 2, abs(_vspd));
+			_vspd *= -1.0;
 		}
 		else _vspd = 0;
 	}
@@ -38,11 +37,10 @@ function collisionsY(_vspd) {
 
 //Ground below?
 function checkGrounded() {
-	if (place_meeting(x, y + 1, oCollision) || (place_meeting(x, y + 1, oSemiWall) && !place_meeting(x, y - 1, oSemiWall) && movement.vspd >= 0)) {
+	if (place_meeting(x, y + 1, oCollision) || (place_meeting(x, floor(y + max(movement.vspd, 1)), oSemiWall) && !place_meeting(x, y - 1, oSemiWall) && movement.vspd >= 0)) {
 		grounded = true;
 		if (object_index == oPlayer) {
 			if (!place_meeting(x, y + 1, oBouncyWall)) movement.vspd = 0;
-			movement.falling = false;
 		}
 	}
 	else grounded = false;

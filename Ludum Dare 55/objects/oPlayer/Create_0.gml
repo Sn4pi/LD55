@@ -26,14 +26,15 @@ animation = {
 		sPlayerTeleport,
 		sPlayerDeath
 	],
-	idleSpd : 8 / FPS,
-	jumpSpd : 10 / FPS,
+	idleSpd : 6 / FPS,
+	jumpSpd : 20 / FPS,
 	jumpImg : [5, 9, 11, 13],
-	throwSpd : 13 / FPS,
+	jumpBlink : 0,
+	throwSpd : 20 / FPS,
 	throwImg : [3, 6],
-	throwChSpd : 13 / FPS,
+	throwChSpd : 20 / FPS,
 	throwChImg : [3, 8],
-	teleSpd : 12 / FPS,
+	teleSpd : 15 / FPS,
 	teleImg: [9, 12],
 	deathSpd : 11 / FPS
 }
@@ -48,7 +49,10 @@ movement = {
 	jumpSpd : _jumpSpd * -1,
 	grav : _jumpDistance / (sqr(FPS * 0.275)),		//a = s/t²
 	falling : false,
-	longJump : time_source_create(time_source_game, 0.45, time_source_units_seconds, startFall)
+	longJump : time_source_create(time_source_game, 0.2, time_source_units_seconds, startFall),
+	jumpDuration : [0.05, 0.5],
+	jumpCharge : false,
+	jumpInc : (0.5 - 0.05) / (FPS * 2.0)
 }
 grounded = true;
 

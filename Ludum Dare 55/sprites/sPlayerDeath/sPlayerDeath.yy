@@ -3,7 +3,7 @@
   "resourceVersion": "1.0",
   "name": "sPlayerDeath",
   "bbox_bottom": 81,
-  "bbox_left": 6,
+  "bbox_left": 7,
   "bbox_right": 52,
   "bbox_top": 8,
   "bboxMode": 2,
