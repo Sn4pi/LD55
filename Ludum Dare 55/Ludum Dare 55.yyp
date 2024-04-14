@@ -61,6 +61,7 @@
     {"id":{"name":"sPlayerIdle","path":"sprites/sPlayerIdle/sPlayerIdle.yy",},},
     {"id":{"name":"sPlayerTeleport","path":"sprites/sPlayerTeleport/sPlayerTeleport.yy",},},
     {"id":{"name":"tl1","path":"tilesets/tl1/tl1.yy",},},
+    {"id":{"name":"rm2","path":"rooms/rm2/rm2.yy",},},
     {"id":{"name":"tileset3","path":"sprites/tileset3/tileset3.yy",},},
     {"id":{"name":"sPlayerDeath","path":"sprites/sPlayerDeath/sPlayerDeath.yy",},},
     {"id":{"name":"oStickyWall","path":"objects/oStickyWall/oStickyWall.yy",},},
@@ -84,6 +85,7 @@
   "RoomOrderNodes": [
     {"roomId":{"name":"rmInit","path":"rooms/rmInit/rmInit.yy",},},
     {"roomId":{"name":"rm1","path":"rooms/rm1/rm1.yy",},},
+    {"roomId":{"name":"rm2","path":"rooms/rm2/rm2.yy",},},
   ],
   "templateType": "game",
   "TextureGroups": [

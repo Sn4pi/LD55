@@ -9,6 +9,7 @@ function input() {
 	spaceRelease = keyboard_check_released(vk_space);
 	esc = keyboard_check_pressed(vk_escape);
 	restart = keyboard_check_pressed(vk_enter) || keyboard_check_pressed(ord("R"));
+	nextlevel = keyboard_check_pressed(vk_tab)
 	
 	//Mouse
 	mx = device_mouse_x_to_gui(0);

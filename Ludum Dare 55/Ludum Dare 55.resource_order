@@ -39,6 +39,7 @@
     {"name":"tl2","order":1,"path":"tilesets/tl2/tl2.yy",},
     {"name":"sPlayerIdle","order":2,"path":"sprites/sPlayerIdle/sPlayerIdle.yy",},
     {"name":"sPlayerTeleport","order":1,"path":"sprites/sPlayerTeleport/sPlayerTeleport.yy",},
+    {"name":"rm2","order":2,"path":"rooms/rm2/rm2.yy",},
     {"name":"tileset3","order":7,"path":"sprites/tileset3/tileset3.yy",},
     {"name":"oStickyWall","order":3,"path":"objects/oStickyWall/oStickyWall.yy",},
     {"name":"tl3","order":2,"path":"tilesets/tl3/tl3.yy",},

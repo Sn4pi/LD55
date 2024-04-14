@@ -14,7 +14,11 @@ if (hp > 0) {
 	//Get damage by spikes
 	if (place_meeting(x, y, oSpikes)) {
 		pDamage();
+		
+		
 	}
+	//Skip Level
+		if (nextlevel) room_goto_next();
 }
 //DED
 else if (hp <= 0) {
