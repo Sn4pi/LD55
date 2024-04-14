@@ -30,8 +30,8 @@
   "properties": [],
   "solid": false,
   "spriteId": {
-    "name": "sPlayerDeath",
-    "path": "sprites/sPlayerDeath/sPlayerDeath.yy",
+    "name": "sPlayerIdle",
+    "path": "sprites/sPlayerIdle/sPlayerIdle.yy",
   },
   "spriteMaskId": null,
   "visible": true,

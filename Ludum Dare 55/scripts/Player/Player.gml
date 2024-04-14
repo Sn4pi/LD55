@@ -153,8 +153,8 @@ function pAnimation() {
 			if (sprite_index == animation.spr[pSprites.teleport]) {
 					if (image_index < animation.teleImg[0]) image_index = Approach(image_index, animation.teleImg[0], animation.teleSpd);
 					else if (image_index == animation.teleImg[0] && instance_exists(oTalisman)) {
-						var _len = point_distance(x, y, oTalisman.x, oTalisman.y);
-						var _dir = point_direction(x, y, oTalisman.x, oTalisman.y);
+						var _len = point_distance(x, y, oTalisman.x, oTalisman.y + sprite_height / 2);
+						var _dir = point_direction(x, y, oTalisman.x, oTalisman.y + sprite_height / 2);
 						
 						//PARTICLES
 						partTeleport(FPS * 0.2, _dir, _len / sprite_get_width(sTeleport), choose(1, 2));
@@ -162,11 +162,17 @@ function pAnimation() {
 						part_emitter_burst(parsys, parem, pTeleport, 1);
 						
 						
-						move_and_collide(lengthdir_x(_len, _dir), lengthdir_y(_len, _dir), oCollision, 20);
+						var i = 1;
+						while (i < _len && !place_meeting(floor(x + lengthdir_x(i, _dir)), floor(y + lengthdir_y(i, _dir)), oCollision)) {
+							i++;
+						}
+						show_debug_message($"{i}");
+						
+						move_and_collide(lengthdir_x(i, _dir), lengthdir_y(i, _dir), oCollision, 8);
 						with (oTalisman) instance_destroy();
 						
 						movement.falling = false;
-						movement.vspd = movement.jumpSpd * 0.0;
+						movement.vspd = 0;
 						time_source_reconfigure(movement.longJump, movement.floatDuration, time_source_units_seconds, startFalling);
 						time_source_start(movement.longJump);
 					}

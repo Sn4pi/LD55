@@ -2,7 +2,7 @@
 draw_self();
 
 //Aim Line
-if (abilityState == talisman.aim) {
+if (abilityState == talisman.aim && image_index == clamp(image_index, 2, animation.throwImg[0])) {
 	var _dir = point_direction(xToGUI * oSystem.scale, (yToGUI - sprite_get_height(sprite_index) / 2) * oSystem.scale, mx, my);
 	
 	/*var _lenMax = 56;
@@ -15,10 +15,10 @@ if (abilityState == talisman.aim) {
 	//Arm
 	var _armX = x - 11 * sign(image_xscale);
 	var _armY = y - 32;
-	var _armAngle = (_dir + 180) mod 360;
-	var _yscl = -1;
-	if (_armAngle == clamp(_armAngle, 90, 270)) _yscl = 1;
-	if (_yscl == -1) {
+	var _armAngle = _dir mod 360;
+	var _yscl = 1;
+	if (_armAngle == clamp(_armAngle, 90, 270)) _yscl = -1;
+	if (_yscl == 1) {
 		if (_armAngle <= 90) _armAngle = clamp(_armAngle, 0, 45);
 		else _armAngle = clamp(_armAngle, 315, 359);
 	}

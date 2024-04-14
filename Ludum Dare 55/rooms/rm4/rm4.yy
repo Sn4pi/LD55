@@ -90,7 +90,7 @@
   ],
   "parent": {
     "name": "Rooms",
-    "path": "folders/Objects/Rooms.yy",
+    "path": "folders/Rooms.yy",
   },
   "parentRoom": null,
   "physicsSettings": {
