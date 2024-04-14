@@ -51,6 +51,7 @@
     {"name":"Particles","order":5,"path":"scripts/Particles/Particles.yy",},
     {"name":"rm7","order":8,"path":"rooms/rm7/rm7.yy",},
     {"name":"GameObjects","order":4,"path":"scripts/GameObjects/GameObjects.yy",},
+    {"name":"rm8","order":9,"path":"rooms/rm8/rm8.yy",},
     {"name":"sWall","order":3,"path":"sprites/sWall/sWall.yy",},
     {"name":"rm6","order":7,"path":"rooms/rm6/rm6.yy",},
     {"name":"sPlayerJump","order":5,"path":"sprites/sPlayerJump/sPlayerJump.yy",},
