@@ -60,6 +60,7 @@
     {"id":{"name":"rm4","path":"rooms/rm4/rm4.yy",},},
     {"id":{"name":"sTalisman","path":"sprites/sTalisman/sTalisman.yy",},},
     {"id":{"name":"oBouncyWall","path":"objects/oBouncyWall/oBouncyWall.yy",},},
+    {"id":{"name":"rm5","path":"rooms/rm5/rm5.yy",},},
     {"id":{"name":"rm2","path":"rooms/rm2/rm2.yy",},},
     {"id":{"name":"tl2","path":"tilesets/tl2/tl2.yy",},},
     {"id":{"name":"oPlayerPart","path":"objects/oPlayerPart/oPlayerPart.yy",},},
@@ -95,6 +96,7 @@
     {"roomId":{"name":"rm3","path":"rooms/rm3/rm3.yy",},},
     {"roomId":{"name":"rm4","path":"rooms/rm4/rm4.yy",},},
     {"roomId":{"name":"rmtest","path":"rooms/rmtest/rmtest.yy",},},
+    {"roomId":{"name":"rm5","path":"rooms/rm5/rm5.yy",},},
   ],
   "templateType": "game",
   "TextureGroups": [
