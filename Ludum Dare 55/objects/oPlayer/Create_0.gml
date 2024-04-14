@@ -1,8 +1,6 @@
 /// @description Init Player
 //Animation
 image_speed = 0;
-image_xscale = 0.5;
-image_yscale = 0.5;
 
 enum pSprites {
 	idle = 0,
@@ -30,9 +28,10 @@ animation = {
 	jumpSpd : 20 / FPS,
 	jumpImg : [5, 9, 11, 13],
 	jumpBlink : 0,
-	throwSpd : 20 / FPS,
+	throwSpd : 10 / FPS,
 	throwImg : [3, 6],
-	throwChSpd : 20 / FPS,
+	throwBlink : 0,
+	throwChSpd : 10 / FPS,
 	throwChImg : [3, 8],
 	teleSpd : 15 / FPS,
 	teleImg: [9, 12],
@@ -49,7 +48,7 @@ movement = {
 	jumpSpd : _jumpSpd * -1,
 	grav : _jumpDistance / (sqr(FPS * 0.275)),		//a = s/t²
 	falling : false,
-	longJump : time_source_create(time_source_game, 0.2, time_source_units_seconds, startFall),
+	longJump : time_source_create(time_source_game, 0.2, time_source_units_seconds, startFalling),
 	jumpDuration : [0.05, 0.5],
 	jumpCharge : false,
 	jumpInc : (0.5 - 0.05) / (FPS * 2.0)
