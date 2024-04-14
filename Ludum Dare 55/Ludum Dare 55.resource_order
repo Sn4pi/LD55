@@ -44,6 +44,7 @@
     {"name":"tl3","order":2,"path":"tilesets/tl3/tl3.yy",},
     {"name":"rmInit","order":1,"path":"rooms/rmInit/rmInit.yy",},
     {"name":"sPlayerThrow","order":6,"path":"sprites/sPlayerThrow/sPlayerThrow.yy",},
+    {"name":"Particles","order":5,"path":"scripts/Particles/Particles.yy",},
     {"name":"GameObjects","order":4,"path":"scripts/GameObjects/GameObjects.yy",},
     {"name":"sWall","order":3,"path":"sprites/sWall/sWall.yy",},
     {"name":"sPlayerJump","order":5,"path":"sprites/sPlayerJump/sPlayerJump.yy",},
