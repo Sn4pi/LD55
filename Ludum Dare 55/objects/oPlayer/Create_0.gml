@@ -41,7 +41,7 @@ animation = {
 
 //Movement
 var _movSpd = 3;
-var _jumpSpd = 5;
+var _jumpSpd = 7;
 var _jumpDistance = 32 * 4;
 movement = {
 	vspd : 0,
@@ -49,7 +49,7 @@ movement = {
 	grav : _jumpDistance / (sqr(FPS * 0.275)),		//a = s/t²
 	falling : false,
 	longJump : time_source_create(time_source_game, 0.2, time_source_units_seconds, startFalling),
-	jumpDuration : [0.05, 0.5],
+	jumpDuration : [0.65, 1.00],
 	floatDuration : 0.51,
 	jumpCharge : false,
 	jumpInc : (0.5 - 0.05) / (FPS * 2.0)

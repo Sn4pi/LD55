@@ -1,8 +1,31 @@
 /// @description Move, be there for teleportation
-if (collision) exit;
 if (oPlayer.sprite_index == oPlayer.animation.spr[pSprites.teleport] && oPlayer.image_index >= 2) {
 	movement.spd = 0;
 	slowMo = 0;
+	exit;
+}
+
+//Charged throw
+if (charged) {
+	if (image_index != clamp(image_index, animation.chargedImg[0], animation.chargedImg[1])) image_index = animation.chargedImg[0];
+	image_index = Approach(image_index, animation.chargedImg[1], animation.imgSpd);
+}
+
+else if (!collision) {
+	//Slow throw
+	if (movement.spd <= movement.movSpd) {
+		if (image_index != clamp(image_index, animation.slowImg[0], animation.slowImg[1] + 0.5)) image_index = animation.slowImg[0];
+		image_index = Approach(image_index, animation.slowImg[1] + 1, animation.imgSpd);
+	}
+	//Fast throw
+	else image_index = animation.fastImg;
+}
+//Stuck in Wall
+else {
+	time_source_stop(flyTimer);
+	
+	if (image_index != clamp(image_index, animation.stuckImg[0], animation.stuckImg[1] + 0.5)) image_index = animation.stuckImg[0];
+	image_index = Approach(image_index, animation.stuckImg[1] + 1, animation.imgSpd);
 	exit;
 }
 
@@ -24,6 +47,7 @@ if (!charged) {
 	}
 	//Fall down
 	else {
+		image_angle = 0;
 		movement.spd = Approach(movement.spd, movement.movSpd, movement.grav);
 	}
 }

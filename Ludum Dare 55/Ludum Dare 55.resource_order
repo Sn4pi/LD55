@@ -19,6 +19,7 @@
     {"name":"World","order":7,"path":"folders/Sprites/World.yy",},
     {"name":"Tile Sets","order":2,"path":"folders/Tile Sets.yy",},
     {"name":"Timelines","order":8,"path":"folders/Timelines.yy",},
+    {"name":"Partikel","order":9,"path":"folders/Sprites/Partikel.yy",},
   ],
   "ResourceOrderSettings": [
     {"name":"oPlayer","order":2,"path":"objects/oPlayer/oPlayer.yy",},

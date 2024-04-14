@@ -1,5 +1,8 @@
 function startFalling() {
-	with (oPlayer) movement.falling = true;
+	with (oPlayer) {
+		movement.falling = true;
+		time_source_reconfigure(movement.longJump, movement.jumpDuration[0], time_source_units_seconds, startFalling);
+	}
 }
 
 function pMovement() {
@@ -29,14 +32,13 @@ function pMovement() {
 			else if (time_source_get_state(movement.longJump) == time_source_state_paused) time_source_resume(movement.longJump);
 			
 			var _gravAmplifier = 1.0;
-			if (sprite_index == animation.spr[pSprites.teleport] || time_source_get_period(movement.longJump) == movement.floatDuration) {
-				
+			if (sprite_index == animation.spr[pSprites.teleport] || (time_source_get_period(movement.longJump) == movement.floatDuration && time_source_get_state(movement.longJump) == time_source_state_active)) {
 				_gravAmplifier = 0.0;
 			}
 			//First half of the uptime he moves up faster
-			if ((1 - time_source_get_time_remaining(movement.longJump) / time_source_get_period(movement.longJump)) < 0.5) movement.vspd = Approach(movement.vspd, movement.jumpSpd * -1, movement.grav * 0.66 * _gravAmplifier * delta);
+			if (movement.vspd < 0) movement.vspd = Approach(movement.vspd, 0, movement.grav * 0.65 * _gravAmplifier * delta);  /*(1 - time_source_get_time_remaining(movement.longJump) / time_source_get_period(movement.longJump)) < 0.25*/
 			//then there should be a state of "float"
-			else movement.vspd = Approach(movement.vspd, movement.jumpSpd * -1, movement.grav * 0.2 * _gravAmplifier * delta);
+			else movement.vspd = Approach(movement.vspd, movement.jumpSpd * -1, movement.grav * 0.0 * _gravAmplifier * delta);
 		}
 		//Fall Faster
 		else {
@@ -61,6 +63,7 @@ function pTalisman() {
 		case talisman.aim:
 			var _slowMoFade = 0.9 / (chargeCd * 1.5 * FPS);
 			slowMo = Approach(slowMo, 1.0, _slowMoFade);
+			//Throw
 			if (rmbReleased && !instance_exists(oTalisman)) {
 				slowMo = 1.0;
 				
@@ -133,6 +136,7 @@ function pAnimation() {
 						}
 					}
 				}
+				
 				//Throw
 				else {
 					//Normal
@@ -155,7 +159,7 @@ function pAnimation() {
 				if (sprite_index == animation.spr[pSprites.teleport]) {
 					if (image_index < animation.teleImg[0]) image_index = Approach(image_index, animation.teleImg[0], animation.teleSpd);
 					else if (image_index == animation.teleImg[0] && instance_exists(oTalisman)) {
-						var _newX = oTalisman.x;
+						/*var _newX = oTalisman.x;
 						var _newY = oTalisman.y;
 						if (place_meeting(_newX, _newY, oCollision)) {
 							var _dir = point_direction(x, y, oTalisman.x, oTalisman.y);
@@ -181,9 +185,13 @@ function pAnimation() {
 							ds_list_destroy(_colList);
 						}
 						x = _newX;
-						y = _newY;
+						y = _newY;*/
+						var _len = point_distance(x, y, oTalisman.x, oTalisman.y);
+						var _dir = point_direction(x, y, oTalisman.x, oTalisman.y);
+						move_and_collide(lengthdir_x(_len, _dir), lengthdir_y(_len, _dir), oCollision, 8);
 						with (oTalisman) instance_destroy();
 						
+						movement.falling = false;
 						movement.vspd = movement.jumpSpd * 0.0;
 						time_source_reconfigure(movement.longJump, movement.floatDuration, time_source_units_seconds, startFalling);
 						time_source_start(movement.longJump);

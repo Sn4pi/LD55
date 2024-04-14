@@ -1,5 +1,13 @@
 /// @description Init
+//Animation
 image_speed = 0;
+animation = {
+	imgSpd : 7 / FPS,
+	fastImg: 0,
+	slowImg: [1, 3],
+	chargedImg: [4, 7],
+	stuckImg: [8, 10],
+};
 
 //Movement
 var _movSpd = 5;
