@@ -75,6 +75,7 @@
     {"id":{"name":"sPlayerThrow","path":"sprites/sPlayerThrow/sPlayerThrow.yy",},},
     {"id":{"name":"rm3","path":"rooms/rm3/rm3.yy",},},
     {"id":{"name":"Particles","path":"scripts/Particles/Particles.yy",},},
+    {"id":{"name":"rm7","path":"rooms/rm7/rm7.yy",},},
     {"id":{"name":"GameObjects","path":"scripts/GameObjects/GameObjects.yy",},},
     {"id":{"name":"sWall","path":"sprites/sWall/sWall.yy",},},
     {"id":{"name":"sPlayerArm","path":"sprites/sPlayerArm/sPlayerArm.yy",},},
@@ -101,6 +102,7 @@
     {"roomId":{"name":"rmtest","path":"rooms/rmtest/rmtest.yy",},},
     {"roomId":{"name":"rm5","path":"rooms/rm5/rm5.yy",},},
     {"roomId":{"name":"rm6","path":"rooms/rm6/rm6.yy",},},
+    {"roomId":{"name":"rm7","path":"rooms/rm7/rm7.yy",},},
   ],
   "templateType": "game",
   "TextureGroups": [

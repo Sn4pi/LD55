@@ -2,7 +2,7 @@
   "resourceType": "GMSprite",
   "resourceVersion": "1.0",
   "name": "sPlayerIdle2",
-  "bbox_bottom": 81,
+  "bbox_bottom": 80,
   "bbox_left": 17,
   "bbox_right": 40,
   "bbox_top": 23,
