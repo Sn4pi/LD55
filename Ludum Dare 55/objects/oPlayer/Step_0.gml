@@ -19,6 +19,7 @@ if (hp > 0) {
 	}
 	//Skip Level
 		if (nextlevel) room_goto_next();
+
 }
 //DED
 else if (hp <= 0) {
