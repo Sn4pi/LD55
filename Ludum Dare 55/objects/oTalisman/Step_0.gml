@@ -57,7 +57,7 @@ if (!charged) {
 */
 else {
 	var _xx = oPlayer.x;
-	var _yy = oPlayer.y - oPlayer.sprite_height / 2;
+	var _yy = oPlayer.y;
 	
 	var i = 1000;
 	while (i > 0 && collision_line(x, y, x + lengthdir_x(i, direction), y + lengthdir_y(i, direction), oCollision, 1, 1)) {
