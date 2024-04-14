@@ -61,7 +61,7 @@ function pTalisman() {
 				slowMo = 1.0;
 				
 				var _talisman = instance_create_depth(x, y - sprite_get_height(sprite_index) / 2, depth - 1, oTalisman);
-				var _dir = point_direction(xToGUI, yToGUI - sprite_get_height(sprite_index) / 2, device_mouse_x_to_gui(0), device_mouse_y_to_gui(0));
+				var _dir = point_direction(xToGUI * oSystem.scale, (yToGUI - sprite_get_height(sprite_index) / 2) * oSystem.scale, device_mouse_x_to_gui(0), device_mouse_y_to_gui(0));
 				_talisman.image_angle = _dir;
 				_talisman.direction = _dir;
 				

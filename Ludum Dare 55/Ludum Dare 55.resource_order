@@ -23,7 +23,6 @@
   "ResourceOrderSettings": [
     {"name":"oPlayer","order":2,"path":"objects/oPlayer/oPlayer.yy",},
     {"name":"tileset2","order":2,"path":"sprites/tileset2/tileset2.yy",},
-    {"name":"tileset5","order":5,"path":"sprites/tileset5/tileset5.yy",},
     {"name":"Player","order":3,"path":"scripts/Player/Player.yy",},
     {"name":"tileset1","order":1,"path":"sprites/tileset1/tileset1.yy",},
     {"name":"sPlayerJump2","order":4,"path":"sprites/sPlayerJump2/sPlayerJump2.yy",},
@@ -48,6 +47,7 @@
     {"name":"sPlayerJump","order":5,"path":"sprites/sPlayerJump/sPlayerJump.yy",},
     {"name":"oTalisman","order":3,"path":"objects/oTalisman/oTalisman.yy",},
     {"name":"tileset4","order":8,"path":"sprites/tileset4/tileset4.yy",},
+    {"name":"tileset5","order":9,"path":"sprites/tileset5/tileset5.yy",},
     {"name":"sSpikes","order":2,"path":"sprites/sSpikes/sSpikes.yy",},
     {"name":"sPlayerThrowCharged","order":7,"path":"sprites/sPlayerThrowCharged/sPlayerThrowCharged.yy",},
     {"name":"sPlayerIdle2","order":3,"path":"sprites/sPlayerIdle2/sPlayerIdle2.yy",},

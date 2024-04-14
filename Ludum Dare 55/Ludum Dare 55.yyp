@@ -40,7 +40,6 @@
   "resources": [
     {"id":{"name":"oPlayer","path":"objects/oPlayer/oPlayer.yy",},},
     {"id":{"name":"tileset2","path":"sprites/tileset2/tileset2.yy",},},
-    {"id":{"name":"tileset5","path":"sprites/tileset5/tileset5.yy",},},
     {"id":{"name":"Player","path":"scripts/Player/Player.yy",},},
     {"id":{"name":"tileset1","path":"sprites/tileset1/tileset1.yy",},},
     {"id":{"name":"sPlayerJump2","path":"sprites/sPlayerJump2/sPlayerJump2.yy",},},
@@ -70,6 +69,7 @@
     {"id":{"name":"sPlayerJump","path":"sprites/sPlayerJump/sPlayerJump.yy",},},
     {"id":{"name":"oTalisman","path":"objects/oTalisman/oTalisman.yy",},},
     {"id":{"name":"tileset4","path":"sprites/tileset4/tileset4.yy",},},
+    {"id":{"name":"tileset5","path":"sprites/tileset5/tileset5.yy",},},
     {"id":{"name":"Basics","path":"scripts/Basics/Basics.yy",},},
     {"id":{"name":"sSpikes","path":"sprites/sSpikes/sSpikes.yy",},},
     {"id":{"name":"sPlayerThrowCharged","path":"sprites/sPlayerThrowCharged/sPlayerThrowCharged.yy",},},

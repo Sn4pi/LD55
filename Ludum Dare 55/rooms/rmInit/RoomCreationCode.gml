@@ -1,3 +1,3 @@
-instance_create_layer(0, 0, "Instances", oSystem);
+instance_create_layer(room_width / 2, room_height, "Instances", oSystem);
 
 room_goto_next();
