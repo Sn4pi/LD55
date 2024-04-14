@@ -3,7 +3,7 @@
   "resourceVersion": "1.0",
   "name": "sPlayerJump2",
   "bbox_bottom": 80,
-  "bbox_left": 21,
+  "bbox_left": 18,
   "bbox_right": 40,
   "bbox_top": 23,
   "bboxMode": 2,

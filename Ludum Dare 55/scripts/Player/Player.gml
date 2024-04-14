@@ -17,7 +17,7 @@ function pMovement() {
 			
 			if (spaceRelease) {
 				movement.jumpCharge = false;
-				movement.vspd = movement.jumpSpd * (1 + (time_source_get_period(movement.longJump) / movement.jumpDuration[1]) / 4);
+				movement.vspd = movement.jumpSpd - (time_source_get_period(movement.longJump) * 4);
 				time_source_start(movement.longJump);
 			}
 		}
