@@ -5,7 +5,7 @@ draw_self();
 if (abilityState == talisman.aim) {
 	var _lenMax = 56;
 	var _lenNow = _lenMax * (1 - time_source_get_time_remaining(chargeTimer) / chargeCd);
-	var _dir = point_direction(x, y - sprite_get_height(sprite_index) / 2, mx, my);
+	var _dir = point_direction(xToGUI, yToGUI - sprite_get_height(sprite_index) / 2, mx, my);
 	draw_set_alpha(0.2);
 	draw_line_width_color(x, y - sprite_get_height(sprite_index) / 2, x + lengthdir_x(_lenMax, _dir), y - sprite_get_height(sprite_index) / 2 + lengthdir_y(_lenMax, _dir), 3, c_white, c_white);
 	draw_set_alpha(1.0);
