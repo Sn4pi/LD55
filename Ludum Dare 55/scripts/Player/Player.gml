@@ -168,7 +168,7 @@ function pAnimation() {
 						part_emitter_burst(parsys, parem, pTeleport, 1);
 						
 						
-						move_and_collide(lengthdir_x(_len, _dir), lengthdir_y(_len, _dir), oCollision, 8);
+						move_and_collide(lengthdir_x(_len, _dir), lengthdir_y(_len, _dir), oCollision, 20);
 						with (oTalisman) instance_destroy();
 						
 						movement.falling = false;
