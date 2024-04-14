@@ -5,9 +5,9 @@ draw_self();
 if (abilityState == talisman.aim && image_index == clamp(image_index, 2, animation.throwImg[0])) {
 	var _dir = point_direction(xToGUI * oSystem.zoom, yToGUI * oSystem.zoom, mx, my);
 	
-	//Charge Bar
-	var _barX = bbox_left - 4;
-	var _barY = bbox_bottom;
+	#region CHARGE Bar
+	var _barX = x + 8;
+	var _barY = bbox_bottom + 24;
 	var _chargeMax = 20;
 	var _img = 0;
 	_img = floor((1 - time_source_get_time_remaining(chargeTimer) / time_source_get_period(chargeTimer)) * _chargeMax);
@@ -18,11 +18,12 @@ if (abilityState == talisman.aim && image_index == clamp(image_index, 2, animati
 	else {
 		throwBarFull = 0;
 	}
+	draw_self();
+	draw_sprite_ext(sHudThrow, _img, _barX, _barY, 1, 1, 0, c_white, 1);
+	#endregion
 	
-	draw_sprite_ext(sHudThrow, _img, _barX, _barY, 0.5, 0.5, 0, c_white, 1);
 	
-	
-	//Arm
+	#region Arm
 	var _armX = x - 11 * sign(image_xscale);
 	var _armY = y + 7;
 	var _armAngle = _dir mod 360;
@@ -37,12 +38,32 @@ if (abilityState == talisman.aim && image_index == clamp(image_index, 2, animati
 	}
 	
 	draw_sprite_ext(sPlayerArm, 0, _armX, _armY, 1, _yscl, _armAngle, c_white, 1);
+	#endregion
+}
+
+//TALISMAN Bar
+else if (instance_exists(oTalisman)) {
+	var _barX = bbox_left;
+	var _barY = y + 4;
+	var _chargeMax = 15;
+	var _img = 0;
+	_img = floor((1.25 - time_source_get_time_remaining(oTalisman.deathTimer) / time_source_get_period(oTalisman.deathTimer)) * _chargeMax);
+	if (_img == _chargeMax) {
+		if (talisBarFull <= 3) talisBarFull = Approach(talisBarFull, 3, 1 / (FPS * 0.1));
+		_img = _chargeMax + talisBarFull;
+	}
+	else {
+		talisBarFull = 0;
+	}
+	
+	draw_sprite_ext(sHudTalisman, _img, _barX, _barY, 1, 1, 0, c_white, 1);
+	draw_self();
 }
 
 //JUMP Bar
-else if (movement.jumpCharge) {
-	var _barX = bbox_right + 4;
-	var _barY = y;
+if (movement.jumpCharge) {
+	var _barX = x;
+	var _barY = y + 56;
 	var _chargeMax = 14;
 	var _diffMax = movement.jumpDuration[1] - movement.jumpDuration[0];
 	var _diff = movement.jumpDuration[1] - time_source_get_period(movement.longJump);
@@ -56,23 +77,6 @@ else if (movement.jumpCharge) {
 		_img = _chargeMax + jumpBarFull;
 	}
 	
-	draw_sprite_ext(sHudJump, _img, _barX, _barY, 0.5, 0.5, 0, c_white, 1);
-}
-
-//TALISMAN Bar
-if (instance_exists(oTalisman)) {
-	var _barX = bbox_left - 4;
-	var _barY = y;
-	var _chargeMax = 15;
-	var _img = 0;
-	_img = floor((1.25 - time_source_get_time_remaining(oTalisman.deathTimer) / time_source_get_period(oTalisman.deathTimer)) * _chargeMax);
-	if (_img == _chargeMax) {
-		if (talisBarFull <= 3) talisBarFull = Approach(talisBarFull, 3, 1 / (FPS * 0.1));
-		_img = _chargeMax + talisBarFull;
-	}
-	else {
-		talisBarFull = 0;
-	}
-	
-	draw_sprite_ext(sHudTalisman, _img, _barX, _barY, 0.5, 0.5, 0, c_white, 1);
+	draw_sprite_ext(sHudJump, _img, _barX, _barY, 1, 1, 0, c_white, 1);
+	draw_self();
 }

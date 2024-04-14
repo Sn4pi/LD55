@@ -49,10 +49,10 @@ movement = {
 	grav : _jumpDistance / (sqr(FPS * 0.275)),		//a = s/t²
 	falling : true,
 	longJump : time_source_create(time_source_game, 0.2, time_source_units_seconds, startFalling),
-	jumpDuration : [0.5, 1.00],
+	jumpDuration : [0.05, 1.00],
 	floatDuration : 0.51,
 	jumpCharge : false,
-	jumpInc : (1.0 - 0.5) / (FPS * 1.25)
+	jumpInc : (1.0 - 0.05) / (FPS * 1.25)
 }
 grounded = true;
 
