@@ -58,6 +58,7 @@ if (!charged) {
 else {
 	var _xx = oPlayer.x;
 	var _yy = oPlayer.y - oPlayer.sprite_height / 2;
+	
 	var i = 1000;
 	while (i > 0 && collision_line(x, y, x + lengthdir_x(i, direction), y + lengthdir_y(i, direction), oCollision, 1, 1)) {
 		i--;
@@ -84,7 +85,7 @@ if (!collision_line(x, y, x + lengthdir_x(movement.spd, direction), y + lengthdi
 }
 //Collision -> Iterate and stop right at wall
 else {
-	var i = movement.spd;
+	var i = ceil(max(movement.spd, 10));
 	var _wall = collision_line(x, y, x + lengthdir_x(i, direction), y + lengthdir_y(i, direction), oCollision, 1, 1);
 	
 	while (i > 0 && collision_line(x, y, x + lengthdir_x(i, direction), y + lengthdir_y(i, direction), oCollision, 1, 1)) {

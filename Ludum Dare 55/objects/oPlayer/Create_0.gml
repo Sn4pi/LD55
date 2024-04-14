@@ -72,6 +72,7 @@ chargeTimer = time_source_create(time_source_game, chargeCd, time_source_units_s
 
 //States
 hp = 1;
+hurt = time_source_create(time_source_game, 0.2, time_source_units_seconds, doNothing);
 
 //Particles
 pTeleport = part_type_create();
