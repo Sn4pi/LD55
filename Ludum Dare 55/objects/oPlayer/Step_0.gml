@@ -1,15 +1,20 @@
 /// @description Main Gameplay
-//Goto next level
-if (place_meeting(x, y, oDoor)) {
-	oSystem.fadeOut = true;
-	exit;
-}
-
 input();
+
+//SUICIDE
+if (keyboard_check_pressed(ord("R"))) hp = 0;
+
 //Animation
 pAnimation();
 //Check if grounded
 checkGrounded();
+
+//Goto next level
+if (place_meeting(x, y, oDoor) && grounded) {
+	oSystem.fadeOut = true;
+	exit;
+}
+
 //ALIVE
 if (hp > 0) {
 	//Movement

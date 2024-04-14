@@ -8,7 +8,7 @@ function input() {
 	space = keyboard_check_pressed(vk_space);
 	spaceRelease = keyboard_check_released(vk_space);
 	esc = keyboard_check_pressed(vk_escape);
-	restart = keyboard_check_pressed(vk_enter) || keyboard_check_pressed(ord("R"));
+	restart = keyboard_check_pressed(vk_enter);
 	nextlevel = keyboard_check_pressed(vk_tab)
 	
 	//Mouse

@@ -189,7 +189,7 @@ function pAnimation() {
 						
 						x = throwX;
 						y = throwY;
-						move_and_collide(lengthdir_x(_len, _dir), lengthdir_y(_len, _dir), oCollision, _len * 2);
+						move_and_collide(lengthdir_x(_len, _dir), lengthdir_y(_len, _dir), oCollision, max(floor(_len) / 10, 10));
 						
 						with (oTalisman) instance_destroy();
 						
