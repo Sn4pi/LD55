@@ -7,7 +7,7 @@ slowMo = 1.0;
 
 //Camera
 cam = camera_create();
-zoom = 0.5;
+zoom = 0.75;
 gameWidth = 640 / zoom;
 gameHeight = 360 / zoom;
 
