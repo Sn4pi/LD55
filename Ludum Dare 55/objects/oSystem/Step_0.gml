@@ -20,6 +20,7 @@ if (instance_exists(oPlayer)) {
 	_dir = point_direction(oPlayer.xToGUI * zoom, (oPlayer.yToGUI) * zoom, device_mouse_x_to_gui(0), device_mouse_y_to_gui(0));
 	_len = point_distance(oPlayer.xToGUI * zoom, (oPlayer.yToGUI) * zoom, device_mouse_x_to_gui(0), device_mouse_y_to_gui(0));
 	_len = clamp(_len, 0, 32 * 5);
+	if (_len <= 32 * 4) _len = 0;
 	
 	xTo = oPlayer.x + lengthdir_x(_len, _dir);
 	yTo = oPlayer.y + lengthdir_y(_len, _dir);

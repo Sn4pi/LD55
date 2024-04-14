@@ -54,6 +54,7 @@
     {"name":"rm6","order":7,"path":"rooms/rm6/rm6.yy",},
     {"name":"sPlayerJump","order":5,"path":"sprites/sPlayerJump/sPlayerJump.yy",},
     {"name":"oTalisman","order":3,"path":"objects/oTalisman/oTalisman.yy",},
+    {"name":"sBackground","order":10,"path":"sprites/sBackground/sBackground.yy",},
     {"name":"tileset4","order":8,"path":"sprites/tileset4/tileset4.yy",},
     {"name":"tileset5","order":9,"path":"sprites/tileset5/tileset5.yy",},
     {"name":"tl7","order":8,"path":"tilesets/tl7/tl7.yy",},

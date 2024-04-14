@@ -81,6 +81,7 @@
     {"id":{"name":"rm6","path":"rooms/rm6/rm6.yy",},},
     {"id":{"name":"sPlayerJump","path":"sprites/sPlayerJump/sPlayerJump.yy",},},
     {"id":{"name":"oTalisman","path":"objects/oTalisman/oTalisman.yy",},},
+    {"id":{"name":"sBackground","path":"sprites/sBackground/sBackground.yy",},},
     {"id":{"name":"tileset4","path":"sprites/tileset4/tileset4.yy",},},
     {"id":{"name":"tileset5","path":"sprites/tileset5/tileset5.yy",},},
     {"id":{"name":"Basics","path":"scripts/Basics/Basics.yy",},},
