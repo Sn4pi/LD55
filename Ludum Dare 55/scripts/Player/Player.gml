@@ -158,13 +158,13 @@ function pAnimation() {
 						
 						//PARTICLES
 						partTeleport(FPS * 0.2, _dir, _len / sprite_get_width(sTeleport), choose(1, 2));
-						part_emitter_region(parsys, parem, x, x, y, y, ps_shape_line, ps_distr_linear);
+						part_emitter_region(parsys, parem, x, x, y - sprite_height / 2, y - sprite_height / 2, ps_shape_line, ps_distr_linear);
 						part_emitter_burst(parsys, parem, pTeleport, 1);
 						
 						
-						var i = 1;
-						while (i < _len && !place_meeting(floor(x + lengthdir_x(i, _dir)), floor(y + lengthdir_y(i, _dir)), oCollision)) {
-							i++;
+						var i = _len;
+						while (i > 1 && !collision_line(x, y, x + lengthdir_x(i, _dir), y + lengthdir_y(i, _dir), oCollision, 1, 1) == noone) {
+							i--;
 						}
 						show_debug_message($"{i}");
 						
