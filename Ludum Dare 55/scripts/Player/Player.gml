@@ -105,25 +105,19 @@ function pTalisman() {
 }
 
 function pAnimation() {
-	//Death
-	if (hp <= 0) {
-		if (sprite_index != animation.spr[pSprites.death]) {sprite_index = animation.spr[pSprites.death]; image_index = 0;}
-		image_index = Approach(image_index, sprite_get_number(sprite_index) - 1, animation.deathSpd);
-	}
-	else {
-		//Turn around
-		if (device_mouse_x(0) != x) image_xscale = sign(device_mouse_x(0) - x);
-		
-		//Talisman animation states
-		var _noTalisman = false;
-		
-		switch (abilityState) {
-			case talisman.aim:
-				if (sprite_index != animation.spr[pSprites.throwNormal] && !charged) {sprite_index = animation.spr[pSprites.throwNormal]; image_index = 0;}
-				else if (sprite_index != animation.spr[pSprites.throwCharged] && charged) {sprite_index = animation.spr[pSprites.throwCharged]; image_index = animation.throwChImg[0];}
-				
-				//Aim
-				if (!instance_exists(oTalisman)) {
+	//Turn around
+	if (device_mouse_x_to_gui(0) != xToGUI * oSystem.scale) image_xscale = sign(device_mouse_x_to_gui(0) - xToGUI * oSystem.scale);
+	
+	//Talisman animation states
+	var _noTalisman = false;
+	
+	switch (abilityState) {
+		case talisman.aim:
+			if (sprite_index != animation.spr[pSprites.throwNormal] && !charged) {sprite_index = animation.spr[pSprites.throwNormal]; image_index = 0;}
+			else if (sprite_index != animation.spr[pSprites.throwCharged] && charged) {sprite_index = animation.spr[pSprites.throwCharged]; image_index = animation.throwChImg[0];}
+			
+			//Aim
+			if (!instance_exists(oTalisman)) {
 					if (animation.throwBlink == 0) image_index = Approach(image_index, animation.throwImg[0], animation.throwSpd);
 					if (image_index == animation.throwImg[0] || animation.throwBlink > 0) {
 						animation.throwBlink = Approach(animation.throwBlink, 2, 0.1);
@@ -136,9 +130,9 @@ function pAnimation() {
 						}
 					}
 				}
-				
-				//Throw
-				else {
+			
+			//Throw
+			else {
 					//Normal
 					if (!charged) {
 						image_index = Approach(image_index, animation.throwImg[1], animation.throwSpd * 0.85);
@@ -151,12 +145,12 @@ function pAnimation() {
 					
 					if (rmb) abilityState = talisman.thrown;
 				}
-				
-			break;
 			
-			case talisman.thrown:
-				//Teleport
-				if (sprite_index == animation.spr[pSprites.teleport]) {
+		break;
+		
+		case talisman.thrown:
+			//Teleport
+			if (sprite_index == animation.spr[pSprites.teleport]) {
 					if (image_index < animation.teleImg[0]) image_index = Approach(image_index, animation.teleImg[0], animation.teleSpd);
 					else if (image_index == animation.teleImg[0] && instance_exists(oTalisman)) {
 						var _len = point_distance(x, y, oTalisman.x, oTalisman.y);
@@ -186,12 +180,12 @@ function pAnimation() {
 					}
 					break;
 				}
-				else _noTalisman = true;
-				
-				
-			default:
-			case talisman.inPocket:
-				switch (_noTalisman) {
+			else _noTalisman = true;
+			
+			
+		default:
+		case talisman.inPocket:
+			switch (_noTalisman) {
 					case false:
 					#region Player HAS the Talisman
 						//Jump - Landing Motion
@@ -294,8 +288,7 @@ function pAnimation() {
 					#endregion
 					break;
 				}
-			break;
-		}
+		break;
 	}
 }
 
