@@ -135,11 +135,11 @@ function pAnimation() {
 			else {
 					//Normal
 					if (!charged) {
-						image_index = Approach(image_index, animation.throwImg[1], animation.throwSpd * 0.85);
+						image_index = Approach(image_index, animation.throwImg[1], animation.throwSpd * 1);
 						if (image_index == animation.throwImg[1]) abilityState = talisman.thrown;
 					}
 					else {
-						image_index = Approach(image_index, animation.throwChImg[1], animation.throwChSpd * 0.85);
+						image_index = Approach(image_index, animation.throwChImg[1], animation.throwChSpd * 1);
 						if (image_index == animation.throwChImg[1]) abilityState = talisman.thrown;
 					}
 					
