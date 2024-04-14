@@ -28,10 +28,10 @@ animation = {
 	jumpSpd : 20 / FPS,
 	jumpImg : [5, 9, 11, 13],
 	jumpBlink : 0,
-	throwSpd : 10 / FPS,
+	throwSpd : 8 / FPS,
 	throwImg : [3, 6],
 	throwBlink : 0,
-	throwChSpd : 10 / FPS,
+	throwChSpd : 8 / FPS,
 	throwChImg : [3, 8],
 	teleSpd : 15 / FPS,
 	teleImg: [9, 12],
@@ -50,7 +50,7 @@ movement = {
 	falling : false,
 	longJump : time_source_create(time_source_game, 0.2, time_source_units_seconds, startFalling),
 	jumpDuration : [0.05, 0.5],
-	floatDuration : 2,
+	floatDuration : 0.51,
 	jumpCharge : false,
 	jumpInc : (0.5 - 0.05) / (FPS * 2.0)
 }
@@ -67,7 +67,7 @@ charged = false;
 setCharge = function() {
 	with (oPlayer) charged = true;
 }
-chargeCd = 2.5;
+chargeCd = 1.25;
 chargeTimer = time_source_create(time_source_game, chargeCd, time_source_units_seconds, setCharge);
 
 //States

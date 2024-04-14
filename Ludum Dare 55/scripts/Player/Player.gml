@@ -29,7 +29,7 @@ function pMovement() {
 			else if (time_source_get_state(movement.longJump) == time_source_state_paused) time_source_resume(movement.longJump);
 			
 			var _gravAmplifier = 1.0;
-			if (sprite_index == animation.spr[pSprites.teleport] || time_source_get_period(movement.longJump) == movement.floatDuration) _gravAmplifier = 0.1;
+			if (sprite_index == animation.spr[pSprites.teleport] || time_source_get_period(movement.longJump) == movement.floatDuration) _gravAmplifier = 0.0;
 			//First half of the uptime he moves up faster
 			if ((1 - time_source_get_time_remaining(movement.longJump) / time_source_get_period(movement.longJump)) < 0.5) movement.vspd = Approach(movement.vspd, movement.jumpSpd * -1, movement.grav * 0.66 * _gravAmplifier * delta);
 			//then there should be a state of "float"
@@ -134,13 +134,15 @@ function pAnimation() {
 				else {
 					//Normal
 					if (!charged) {
-						image_index = Approach(image_index, animation.throwImg[1], animation.throwSpd);
+						image_index = Approach(image_index, animation.throwImg[1], animation.throwSpd * 0.85);
 						if (image_index == animation.throwImg[1]) abilityState = talisman.thrown;
 					}
 					else {
-						image_index = Approach(image_index, animation.throwChImg[1], animation.throwChSpd);
+						image_index = Approach(image_index, animation.throwChImg[1], animation.throwChSpd * 0.85);
 						if (image_index == animation.throwChImg[1]) abilityState = talisman.thrown;
 					}
+					
+					if (rmb) abilityState = talisman.thrown;
 				}
 				
 			break;
@@ -179,7 +181,7 @@ function pAnimation() {
 						y = _newY;
 						with (oTalisman) instance_destroy();
 						
-						movement.vspd = movement.jumpSpd * 0.1;
+						movement.vspd = movement.jumpSpd * 0.0;
 						time_source_reconfigure(movement.longJump, movement.floatDuration, time_source_units_seconds, startFalling);
 						time_source_start(movement.longJump);
 					}
