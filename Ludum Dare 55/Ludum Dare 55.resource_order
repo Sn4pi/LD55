@@ -14,12 +14,12 @@
     {"name":"Shaders","order":6,"path":"folders/Shaders.yy",},
     {"name":"Sounds","order":3,"path":"folders/Sounds.yy",},
     {"name":"Sprites","order":1,"path":"folders/Sprites.yy",},
+    {"name":"Partikel","order":9,"path":"folders/Sprites/Partikel.yy",},
     {"name":"Player","order":8,"path":"folders/Sprites/Player.yy",},
     {"name":"TileSets","order":5,"path":"folders/Sprites/TileSets.yy",},
     {"name":"World","order":7,"path":"folders/Sprites/World.yy",},
     {"name":"Tile Sets","order":2,"path":"folders/Tile Sets.yy",},
     {"name":"Timelines","order":8,"path":"folders/Timelines.yy",},
-    {"name":"Partikel","order":9,"path":"folders/Sprites/Partikel.yy",},
   ],
   "ResourceOrderSettings": [
     {"name":"oPlayer","order":2,"path":"objects/oPlayer/oPlayer.yy",},
