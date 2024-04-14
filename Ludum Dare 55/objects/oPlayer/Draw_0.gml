@@ -3,7 +3,7 @@ draw_self();
 
 //Aim Line
 if (abilityState == talisman.aim && image_index == clamp(image_index, 2, animation.throwImg[0])) {
-	var _dir = point_direction(xToGUI * oSystem.scale, (yToGUI - sprite_get_height(sprite_index) / 2) * oSystem.scale, mx, my);
+	var _dir = point_direction(xToGUI * oSystem.scale, yToGUI * oSystem.scale, mx, my);
 	
 	/*var _lenMax = 56;
 	var _lenNow = _lenMax * (1 - time_source_get_time_remaining(chargeTimer) / chargeCd);

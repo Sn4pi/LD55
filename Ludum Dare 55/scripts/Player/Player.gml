@@ -67,8 +67,8 @@ function pTalisman() {
 			if (rmbReleased && !instance_exists(oTalisman)) {
 				slowMo = 1.0;
 				
-				var _talisman = instance_create_depth(x, y - sprite_get_height(sprite_index) / 2, depth - 1, oTalisman);
-				var _dir = point_direction(xToGUI * oSystem.scale, (yToGUI - sprite_get_height(sprite_index) / 2) * oSystem.scale, device_mouse_x_to_gui(0), device_mouse_y_to_gui(0));
+				var _talisman = instance_create_depth(x, y, depth - 1, oTalisman);
+				var _dir = point_direction(xToGUI * oSystem.scale, (yToGUI) * oSystem.scale, device_mouse_x_to_gui(0), device_mouse_y_to_gui(0));
 				_talisman.image_angle = _dir;
 				_talisman.direction = _dir;
 				
@@ -153,22 +153,25 @@ function pAnimation() {
 			if (sprite_index == animation.spr[pSprites.teleport]) {
 					if (image_index < animation.teleImg[0]) image_index = Approach(image_index, animation.teleImg[0], animation.teleSpd);
 					else if (image_index == animation.teleImg[0] && instance_exists(oTalisman)) {
-						var _len = point_distance(x, y, oTalisman.x, oTalisman.y + sprite_height / 2);
-						var _dir = point_direction(x, y, oTalisman.x, oTalisman.y + sprite_height / 2);
+						var _len = point_distance(x, y, oTalisman.x, oTalisman.y);
+						var _dir = point_direction(x, y, oTalisman.x, oTalisman.y);
 						
 						//PARTICLES
 						partTeleport(FPS * 0.2, _dir, _len / sprite_get_width(sTeleport), choose(1, 2));
-						part_emitter_region(parsys, parem, x, x, y - sprite_height / 2, y - sprite_height / 2, ps_shape_line, ps_distr_linear);
+						part_emitter_region(parsys, parem, x, x, y, y, ps_shape_line, ps_distr_linear);
 						part_emitter_burst(parsys, parem, pTeleport, 1);
 						
-						
-						var i = _len;
-						while (i > 1 && !collision_line(x, y, x + lengthdir_x(i, _dir), y + lengthdir_y(i, _dir), oCollision, 1, 1) == noone) {
-							i--;
+						//Talisman is on wall
+						var i = floor(_len);
+						while (i > 0 && place_meeting(x + lengthdir_x(i, _dir), y + lengthdir_y(i, _dir), oCollision)) {
+							i = Approach(i, 0, 1);
 						}
 						show_debug_message($"{i}");
+						show_debug_message($"Angle: {_dir}");
 						
-						move_and_collide(lengthdir_x(i, _dir), lengthdir_y(i, _dir), oCollision, 8);
+						move_and_collide(lengthdir_x(_len, _dir), lengthdir_y(_len, _dir), oCollision, 20);
+
+						
 						with (oTalisman) instance_destroy();
 						
 						movement.falling = false;

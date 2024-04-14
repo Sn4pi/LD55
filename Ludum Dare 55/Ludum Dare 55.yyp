@@ -68,7 +68,6 @@
     {"id":{"name":"rmtest","path":"rooms/rmtest/rmtest.yy",},},
     {"id":{"name":"tileset3","path":"sprites/tileset3/tileset3.yy",},},
     {"id":{"name":"sPlayerDeath","path":"sprites/sPlayerDeath/sPlayerDeath.yy",},},
-    {"id":{"name":"oStickyWall","path":"objects/oStickyWall/oStickyWall.yy",},},
     {"id":{"name":"tl3","path":"tilesets/tl3/tl3.yy",},},
     {"id":{"name":"rmInit","path":"rooms/rmInit/rmInit.yy",},},
     {"id":{"name":"sPlayerThrow","path":"sprites/sPlayerThrow/sPlayerThrow.yy",},},
