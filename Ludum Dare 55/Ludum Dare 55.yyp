@@ -78,6 +78,7 @@
     {"id":{"name":"GameObjects","path":"scripts/GameObjects/GameObjects.yy",},},
     {"id":{"name":"sWall","path":"sprites/sWall/sWall.yy",},},
     {"id":{"name":"sPlayerArm","path":"sprites/sPlayerArm/sPlayerArm.yy",},},
+    {"id":{"name":"rm6","path":"rooms/rm6/rm6.yy",},},
     {"id":{"name":"sPlayerJump","path":"sprites/sPlayerJump/sPlayerJump.yy",},},
     {"id":{"name":"oTalisman","path":"objects/oTalisman/oTalisman.yy",},},
     {"id":{"name":"tileset4","path":"sprites/tileset4/tileset4.yy",},},
@@ -98,6 +99,7 @@
     {"roomId":{"name":"rm4","path":"rooms/rm4/rm4.yy",},},
     {"roomId":{"name":"rmtest","path":"rooms/rmtest/rmtest.yy",},},
     {"roomId":{"name":"rm5","path":"rooms/rm5/rm5.yy",},},
+    {"roomId":{"name":"rm6","path":"rooms/rm6/rm6.yy",},},
   ],
   "templateType": "game",
   "TextureGroups": [
