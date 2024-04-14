@@ -55,6 +55,7 @@
     {"id":{"name":"sLight","path":"sprites/sLight/sLight.yy",},},
     {"id":{"name":"oSemiWall","path":"objects/oSemiWall/oSemiWall.yy",},},
     {"id":{"name":"tl5","path":"tilesets/tl5/tl5.yy",},},
+    {"id":{"name":"sDoor","path":"sprites/sDoor/sDoor.yy",},},
     {"id":{"name":"sTeleport","path":"sprites/sTeleport/sTeleport.yy",},},
     {"id":{"name":"rm4","path":"rooms/rm4/rm4.yy",},},
     {"id":{"name":"sTalisman","path":"sprites/sTalisman/sTalisman.yy",},},
