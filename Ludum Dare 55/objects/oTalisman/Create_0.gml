@@ -32,7 +32,6 @@ die = function() {
 deathTimer = time_source_create(time_source_game, 5, time_source_units_seconds, die);
 time_source_start(deathTimer);
 
-
 //Fly then fall
 flying = function() {
 	movement.spd = 0;
@@ -40,3 +39,6 @@ flying = function() {
 	image_angle = 0;
 }
 flyTimer = time_source_create(time_source_game, 0, time_source_units_seconds, flying);
+
+//Particles
+pTeleport = part_type_create();

@@ -56,13 +56,24 @@ if (!charged) {
 	Hit the next wall instantly
 */
 else {
+	var _xx = oPlayer.x;
+	var _yy = oPlayer.y - oPlayer.sprite_height / 2;
 	var i = 1000;
 	while (i > 0 && collision_line(x, y, x + lengthdir_x(i, direction), y + lengthdir_y(i, direction), oCollision, 1, 1)) {
 		i--;
 	}
-	
 	x = x + lengthdir_x(i, direction);
 	y = y + lengthdir_y(i, direction);
+	
+	//PARTICLES
+	if (!collision) {
+		var _dir = point_direction(x, y, _xx, _yy);
+		var _len = point_distance(_xx, _yy, x, y);
+		partTeleport(FPS * 0.2, _dir, _len / sprite_get_width(sTeleport), 9);
+		part_emitter_region(parsys, parem, x, x, y, y, ps_shape_line, ps_distr_linear);
+		part_emitter_burst(parsys, parem, pTeleport, 1);
+	}
+	
 	collision = true;
 }
 

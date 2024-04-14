@@ -163,7 +163,7 @@ function pAnimation() {
 						var _dir = point_direction(x, y, oTalisman.x, oTalisman.y);
 						
 						//PARTICLES
-						partTeleport(FPS * 0.2, _dir, _len / sprite_get_width(sTeleport), irandom(sprite_get_number(sTeleport) - 1));
+						partTeleport(FPS * 0.2, _dir, _len / sprite_get_width(sTeleport), choose(1, 2));
 						part_emitter_region(parsys, parem, x, x, y, y, ps_shape_line, ps_distr_linear);
 						part_emitter_burst(parsys, parem, pTeleport, 1);
 						
