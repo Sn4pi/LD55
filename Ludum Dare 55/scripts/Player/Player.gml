@@ -67,6 +67,8 @@ function pTalisman() {
 			if (rmbReleased && !instance_exists(oTalisman)) {
 				slowMo = 1.0;
 				
+				throwX = x;
+				throwY = y;
 				var _talisman = instance_create_depth(x, y, depth - 1, oTalisman);
 				var _dir = point_direction(xToGUI * oSystem.zoom, (yToGUI) * oSystem.zoom, device_mouse_x_to_gui(0), device_mouse_y_to_gui(0));
 				_talisman.image_angle = _dir;
@@ -153,23 +155,27 @@ function pAnimation() {
 			if (sprite_index == animation.spr[pSprites.teleport]) {
 					if (image_index < animation.teleImg[0]) image_index = Approach(image_index, animation.teleImg[0], animation.teleSpd);
 					else if (image_index == animation.teleImg[0] && instance_exists(oTalisman)) {
-						var _len = point_distance(x, y, oTalisman.x, oTalisman.y);
-						var _dir = point_direction(x, y, oTalisman.x, oTalisman.y);
+						var _len = point_distance(throwX, throwY, oTalisman.x, oTalisman.y);
+						var _dir = point_direction(throwX, throwY, oTalisman.x, oTalisman.y);
+						var _len2 = point_distance(x, y, oTalisman.x, oTalisman.y);
+						var _dir2 = point_direction(x, y, oTalisman.x, oTalisman.y);
 						
 						//PARTICLES
-						partTeleport(FPS * 0.2, _dir, _len / sprite_get_width(sTeleport), choose(1, 2));
+						partTeleport(FPS * 0.2, _dir2, _len2 / sprite_get_width(sTeleport), choose(1, 2));
 						part_emitter_region(parsys, parem, x, x, y, y, ps_shape_line, ps_distr_linear);
 						part_emitter_burst(parsys, parem, pTeleport, 1);
 						
 						//Talisman is on wall
 						var i = floor(_len);
-						while (i > 0 && place_meeting(x + lengthdir_x(i, _dir), y + lengthdir_y(i, _dir), oCollision)) {
+						while (i > 0 && place_meeting(throwX + lengthdir_x(i, _dir), throwY + lengthdir_y(i, _dir), oCollision)) {
 							i = Approach(i, 0, 1);
 						}
 						show_debug_message($"{i}");
 						show_debug_message($"Angle: {_dir}");
 						
-						move_and_collide(lengthdir_x(_len, _dir), lengthdir_y(_len, _dir), oCollision, 20);
+						x = throwX;
+						y = throwY;
+						move_and_collide(lengthdir_x(_len, _dir), lengthdir_y(_len, _dir), oCollision, 8);
 
 						
 						with (oTalisman) instance_destroy();

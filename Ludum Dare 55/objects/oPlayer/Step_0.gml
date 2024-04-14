@@ -1,7 +1,8 @@
 /// @description Main Gameplay
 //Goto next level
 if (place_meeting(x, y, oDoor)) {
-	room_goto_next();
+	oSystem.fadeOut = true;
+	exit;
 }
 
 input();

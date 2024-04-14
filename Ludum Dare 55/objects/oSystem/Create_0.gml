@@ -29,4 +29,10 @@ application_surface_enable(false);
 camera_set_view_size(cam, gameWidth + 1, gameHeight + 1);
 display_set_gui_size(gameWidth, gameHeight);
 
-viewSurf = -1
+viewSurf = -1;
+
+//Fade Away
+fadeIn = true;
+fadeOut = false;
+fadeAlpha = 1;
+fadeInc = 1 / (FPS * 2);
