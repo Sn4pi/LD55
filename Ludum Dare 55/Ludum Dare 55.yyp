@@ -85,6 +85,7 @@
     {"id":{"name":"Basics","path":"scripts/Basics/Basics.yy",},},
     {"id":{"name":"tl7","path":"tilesets/tl7/tl7.yy",},},
     {"id":{"name":"sSpikes","path":"sprites/sSpikes/sSpikes.yy",},},
+    {"id":{"name":"oDoor","path":"objects/oDoor/oDoor.yy",},},
     {"id":{"name":"sPlayerThrowCharged","path":"sprites/sPlayerThrowCharged/sPlayerThrowCharged.yy",},},
     {"id":{"name":"sPlayerIdle2","path":"sprites/sPlayerIdle2/sPlayerIdle2.yy",},},
     {"id":{"name":"rm1","path":"rooms/rm1/rm1.yy",},},

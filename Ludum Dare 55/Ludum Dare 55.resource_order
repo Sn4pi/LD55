@@ -58,6 +58,7 @@
     {"name":"tileset5","order":9,"path":"sprites/tileset5/tileset5.yy",},
     {"name":"tl7","order":8,"path":"tilesets/tl7/tl7.yy",},
     {"name":"sSpikes","order":2,"path":"sprites/sSpikes/sSpikes.yy",},
+    {"name":"oDoor","order":5,"path":"objects/oDoor/oDoor.yy",},
     {"name":"sPlayerThrowCharged","order":7,"path":"sprites/sPlayerThrowCharged/sPlayerThrowCharged.yy",},
     {"name":"sPlayerIdle2","order":3,"path":"sprites/sPlayerIdle2/sPlayerIdle2.yy",},
   ],
