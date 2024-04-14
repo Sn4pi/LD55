@@ -22,9 +22,29 @@ if (hp > 0) {
 }
 //DED
 else if (hp <= 0) {
-	movement.vspd = Approach(movement.vspd, movement.jumpSpd * -1, movement.grav * delta);
+	movement.hspd = 0;
+	movement.vspd = 0;
+	visible = false;
 	
-	if (restart) room_restart();
+	//Get taken apart
+	if (!instance_exists(oPlayerPart)) {
+		for (var i = 0; i < sprite_get_number(sPlayerParts); i++) {
+			var _part = instance_create_depth(x, y - 20, depth, oPlayerPart);
+			_part.image_index = i;
+			var _dir = irandom_range(15, 180 - 15);
+			var _len = 14;
+			_part.hspd = lengthdir_x(_len, _dir);
+			_part.vspd = lengthdir_y(_len, _dir);
+			_part.rotationSpd = irandom_range(5, 20);
+		}
+	}
+	
+	//Retry
+	if (restart) {
+		with (oPlayerPart) instance_destroy();
+		visible = true;
+		room_restart();
+	}
 }
 
 //Move Player
