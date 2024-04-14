@@ -1,5 +1,10 @@
 /// @description Move, be there for teleportation
 if (collision) exit;
+if (oPlayer.sprite_index == oPlayer.animation.spr[pSprites.teleport] && oPlayer.image_index >= 2) {
+	movement.spd = 0;
+	slowMo = 0;
+	exit;
+}
 
 /*	- Normal Shot -
 	start with increased speed
