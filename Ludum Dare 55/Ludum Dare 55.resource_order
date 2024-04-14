@@ -35,6 +35,7 @@
     {"name":"oSpikes","order":2,"path":"objects/oSpikes/oSpikes.yy",},
     {"name":"oSemiWall","order":4,"path":"objects/oSemiWall/oSemiWall.yy",},
     {"name":"tl5","order":4,"path":"tilesets/tl5/tl5.yy",},
+    {"name":"rm4","order":5,"path":"rooms/rm4/rm4.yy",},
     {"name":"sTalisman","order":2,"path":"sprites/sTalisman/sTalisman.yy",},
     {"name":"rm2","order":3,"path":"rooms/rm2/rm2.yy",},
     {"name":"tl2","order":1,"path":"tilesets/tl2/tl2.yy",},
