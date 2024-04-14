@@ -14,8 +14,8 @@ function input() {
 	//Mouse
 	mx = device_mouse_x_to_gui(0);
 	my = device_mouse_y_to_gui(0);
-	xToGUI = (oSystem.gameWidth * 0.5 + oSystem.dx);
-	yToGUI = (oSystem.gameHeight * 0.6 + oSystem.dy);
+	xToGUI = (oSystem.gameWidth * 0.5 + oSystem.dx) / oSystem.zoom;
+	yToGUI = (oSystem.gameHeight * 0.6 + oSystem.dy) / oSystem.zoom;
 	
 	lmb = mouse_check_button_pressed(mb_left);
 	lmbReleased = mouse_check_button_released(mb_left);

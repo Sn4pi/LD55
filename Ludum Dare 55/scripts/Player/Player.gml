@@ -68,7 +68,7 @@ function pTalisman() {
 				slowMo = 1.0;
 				
 				var _talisman = instance_create_depth(x, y, depth - 1, oTalisman);
-				var _dir = point_direction(xToGUI * oSystem.scale, (yToGUI) * oSystem.scale, device_mouse_x_to_gui(0), device_mouse_y_to_gui(0));
+				var _dir = point_direction(xToGUI * oSystem.zoom, (yToGUI) * oSystem.zoom, device_mouse_x_to_gui(0), device_mouse_y_to_gui(0));
 				_talisman.image_angle = _dir;
 				_talisman.direction = _dir;
 				
@@ -106,7 +106,7 @@ function pTalisman() {
 
 function pAnimation() {
 	//Turn around
-	if (device_mouse_x_to_gui(0) != xToGUI * oSystem.scale) image_xscale = sign(device_mouse_x_to_gui(0) - xToGUI * oSystem.scale);
+	if (device_mouse_x_to_gui(0) != xToGUI * oSystem.zoom) image_xscale = sign(device_mouse_x_to_gui(0) - xToGUI * oSystem.zoom);
 	
 	//Talisman animation states
 	var _noTalisman = false;

@@ -3,7 +3,7 @@ draw_self();
 
 //Aim Line
 if (abilityState == talisman.aim && image_index == clamp(image_index, 2, animation.throwImg[0])) {
-	var _dir = point_direction(xToGUI * oSystem.scale, yToGUI * oSystem.scale, mx, my);
+	var _dir = point_direction(xToGUI * oSystem.zoom, yToGUI * oSystem.zoom, mx, my);
 	
 	/*var _lenMax = 56;
 	var _lenNow = _lenMax * (1 - time_source_get_time_remaining(chargeTimer) / chargeCd);
@@ -14,7 +14,7 @@ if (abilityState == talisman.aim && image_index == clamp(image_index, 2, animati
 	
 	//Arm
 	var _armX = x - 11 * sign(image_xscale);
-	var _armY = y - 32;
+	var _armY = y + 7;
 	var _armAngle = _dir mod 360;
 	var _yscl = 1;
 	if (_armAngle == clamp(_armAngle, 90, 270)) _yscl = -1;
