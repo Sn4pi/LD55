@@ -9,8 +9,10 @@ movement = {
 	slowDown : 10 / (FPS * 1.0),
 	movSpd : _movSpd,
 	acc : 1.01,
+	grav : _movSpd / (sqr(FPS * 0.1))
 }
 accelerate = false;
+chargeStages = 0;
 charged = false;
 collision = false;
 
@@ -21,3 +23,12 @@ die = function() {
 }
 deathTimer = time_source_create(time_source_game, 5, time_source_units_seconds, die);
 time_source_start(deathTimer);
+
+
+//Fly then fall
+flying = function() {
+	movement.spd = 0;
+	direction = 270;
+	image_angle = 0;
+}
+flyTimer = time_source_create(time_source_game, 0, time_source_units_seconds, flying);

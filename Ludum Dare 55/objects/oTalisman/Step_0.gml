@@ -7,12 +7,19 @@ if (collision) exit;
 	then add exponnential but small acceleration to the Talisman
 */
 if (!charged) {
-	if (!accelerate) {
-		movement.spd = Approach(movement.spd, movement.movSpd, movement.slowDown);
-		if (movement.spd == movement.movSpd) accelerate = true;
+	//Fly
+	if (time_source_get_state(flyTimer) == time_source_state_active) {
+		if (!accelerate) {
+			movement.spd = Approach(movement.spd, movement.movSpd, movement.slowDown);
+			if (movement.spd == movement.movSpd) accelerate = true;
+		}
+		else {
+			movement.spd *= movement.acc;
+		}
 	}
+	//Fall down
 	else {
-		movement.spd *= movement.acc;
+		movement.spd = Approach(movement.spd, movement.movSpd, movement.grav);
 	}
 }
 

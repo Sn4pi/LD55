@@ -67,9 +67,16 @@ function pTalisman() {
 				
 				//Normal Shot
 				if (!charged) {
-					var _len = _talisman.movement.movSpd;
+					var _chargedTime = 1 - (time_source_get_time_remaining(chargeTimer) / chargeCd);
+					if (_chargedTime <= 0.25) _talisman.chargeStages = 1;
+					else if (_chargedTime <= 0.5) _talisman.chargeStages = 2;
+					else if (_chargedTime <= 0.75) _talisman.chargeStages = 3;
+					else _talisman.chargeStages = 4;
+					
 					time_source_stop(chargeTimer);
-					_talisman.movement.spd = _len;
+					_talisman.movement.spd = _talisman.movement.movSpd;
+					time_source_reconfigure(_talisman.flyTimer, _talisman.chargeStages * 0.25, time_source_units_seconds, _talisman.flying);
+					time_source_start(_talisman.flyTimer);
 				}
 				//Charged Shot
 				else {
@@ -142,12 +149,30 @@ function pAnimation() {
 				if (sprite_index == animation.spr[pSprites.teleport]) {
 					if (image_index < animation.teleImg[0]) image_index = Approach(image_index, animation.teleImg[0], animation.teleSpd);
 					else if (image_index == animation.teleImg[0] && instance_exists(oTalisman)) {
-						var _dir = (oTalisman.direction + 180) mod 360;
 						var _newX = oTalisman.x;
 						var _newY = oTalisman.y;
-						while (place_meeting(_newX, _newY, oCollision)) {
-							_newX = _newX + lengthdir_x(1, _dir);
-							_newY = _newY + lengthdir_y(1, _dir);
+						if (place_meeting(_newX, _newY, oCollision)) {
+							var _dir = point_direction(x, y, oTalisman.x, oTalisman.y);
+							var _colList = ds_list_create();
+							var _collision = collision_rectangle_list(_newX - 24, _newY - 74, _newX + 24, _newY, oCollision, 1, 1, _colList, 1);
+							if (_collision > 0) {
+								for (var i = 0; i < _collision; ++i;) {
+									var _bbox_side = _colList[| i].bbox_right;
+									var _bbox_side2 = _colList[| i].bbox_bottom;
+									if (_colList[| i].x + _colList[| i].sprite_width / 2 > x) {
+										_bbox_side = _colList[| i].bbox_left;
+									}
+									if (_colList[| i].y + _colList[| i].sprite_height / 2 > y) {
+										_bbox_side2 = _colList[| i].bbox_top;
+									}
+									
+									_newX = _bbox_side + 24 * sign(x - _colList[| i].x);
+									if (_bbox_side2 == _colList[| i].bbox_bottom) _newY = _bbox_side2 + 74 * sign(y - _colList[| i].y);
+									else _newY = _bbox_side2 + 2 * sign(y - _colList[| i].y);
+									if (collision_rectangle(_newX - 24, _newY - 74, _newX + 24, _newY, oCollision, 1, 1) == noone) i = _collision;
+								}
+							}
+							ds_list_destroy(_colList);
 						}
 						x = _newX;
 						y = _newY;
