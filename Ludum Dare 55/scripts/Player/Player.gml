@@ -166,17 +166,30 @@ function pAnimation() {
 						part_emitter_burst(parsys, parem, pTeleport, 1);
 						
 						//Talisman is on wall
-						var i = floor(_len);
-						while (i > 0 && place_meeting(throwX + lengthdir_x(i, _dir), throwY + lengthdir_y(i, _dir), oCollision)) {
-							i = Approach(i, 0, 1);
+						var i = 1;
+						var _skip = 0;
+						//How long is there free space?
+						while (i < _len && !place_meeting(throwX + lengthdir_x(i, _dir), throwY + lengthdir_y(i, _dir), oCollision)) {
+							i++;
+							_skip = 0;
+							show_debug_message("FREE");
 						}
-						show_debug_message($"{i}");
-						show_debug_message($"Angle: {_dir}");
+						//How long is a blockade there?
+						while (i < _len && place_meeting(throwX + lengthdir_x(i, _dir), throwY + lengthdir_y(i, _dir), oCollision)) {
+							i++;
+							_skip = 1;
+							show_debug_message("BLOCKED");
+						}
+						//Is there free space again ?
+						while (i < _len && place_meeting(throwX + lengthdir_x(i, _dir), throwY + lengthdir_y(i, _dir), oCollision)) {
+							i++;
+							_skip = 2;
+							show_debug_message("FREE TO SKIP");
+						}
 						
 						x = throwX;
 						y = throwY;
-						move_and_collide(lengthdir_x(_len, _dir), lengthdir_y(_len, _dir), oCollision, 8);
-
+						move_and_collide(lengthdir_x(_len, _dir), lengthdir_y(_len, _dir), oCollision, _len * 2);
 						
 						with (oTalisman) instance_destroy();
 						

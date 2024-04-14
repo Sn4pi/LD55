@@ -20,7 +20,7 @@ xTo = x;
 yTo = y;
 dx = 0;
 dy = 0;
-smooth = 18;
+smooth = 24;
 
 //Pixel perfect
 view_wport[0] = 640;

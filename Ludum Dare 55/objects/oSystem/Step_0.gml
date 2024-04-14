@@ -14,8 +14,15 @@ if (!view_enabled || !view_visible[0]) {
 }
 
 if (instance_exists(oPlayer)) {
-	xTo = oPlayer.x;
-	yTo = oPlayer.y;
+	var _dir = 0;
+	var _len = 0;
+	
+	_dir = point_direction(oPlayer.xToGUI * zoom, (oPlayer.yToGUI) * zoom, device_mouse_x_to_gui(0), device_mouse_y_to_gui(0));
+	_len = point_distance(oPlayer.xToGUI * zoom, (oPlayer.yToGUI) * zoom, device_mouse_x_to_gui(0), device_mouse_y_to_gui(0));
+	_len = clamp(_len, 0, 32 * 5);
+	
+	xTo = oPlayer.x + lengthdir_x(_len, _dir);
+	yTo = oPlayer.y + lengthdir_y(_len, _dir);
 	
 	dx = oPlayer.x - x;
 	dy = oPlayer.y - y;
