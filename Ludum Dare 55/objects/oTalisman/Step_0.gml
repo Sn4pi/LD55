@@ -80,8 +80,8 @@ else {
 
 //No collision -> MOVE
 if (!collision_line(x, y, x + lengthdir_x(movement.spd, direction), y + lengthdir_y(movement.spd, direction), oCollision, 1, 1)) {
-	x = x + lengthdir_x(movement.spd, direction) * delta;
-	y = y + lengthdir_y(movement.spd, direction) * delta;
+	x = x + lengthdir_x(movement.spd, direction);
+	y = y + lengthdir_y(movement.spd, direction);
 }
 //Collision -> Iterate and stop right at wall
 else {
@@ -91,8 +91,8 @@ else {
 	while (i > 0 && collision_line(x, y, x + lengthdir_x(i, direction), y + lengthdir_y(i, direction), oCollision, 1, 1)) {
 		i--;
 	}
-	x = x + lengthdir_x(i, direction) * delta;
-	y = y + lengthdir_y(i, direction) * delta;
+	x = x + lengthdir_x(i, direction);
+	y = y + lengthdir_y(i, direction);
 	
 	//Check which kind of wall it is
 	if (_wall.object_index == oBouncyWall) {
