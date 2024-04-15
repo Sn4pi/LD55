@@ -43,8 +43,8 @@ animation = {
 
 //Movement
 var _movSpd = 3;
-var _jumpSpd = 6;
-var _jumpDistance = 32 * 4;
+var _jumpSpd = 7;
+var _jumpDistance = 32 * 5;
 movement = {
 	vspd : 0,
 	jumpSpd : _jumpSpd * -1,
