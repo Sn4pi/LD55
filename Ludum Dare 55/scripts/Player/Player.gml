@@ -17,7 +17,7 @@ function pMovement() {
 			
 			if (spaceRelease) {
 				//PLAY SFX
-				audio_play_sound(oMusic.sfx[sound.fall], 1, 0, 1, 0);
+				audio_play_sound(oMusic.sfx[sound.fall], 1, 0, volSfx);
 				
 				movement.jumpCharge = false;
 				movement.vspd = movement.jumpSpd - (time_source_get_period(movement.longJump) * 3.9);
@@ -75,7 +75,7 @@ function pTalisman() {
 				slowMo = Approach(slowMo, 1.0, _slowMoFade);
 				
 				//PLAY SFX
-				audio_play_sound(oMusic.sfx[sound.throwing], 1, 0, 1);
+				audio_play_sound(oMusic.sfx[sound.throwing], 1, 0, volSfx);
 				
 				throwX = x;
 				throwY = y;
@@ -170,7 +170,7 @@ function pAnimation() {
 						image_index = Approach(image_index, animation.teleImg[0], animation.teleSpd);
 						if ((floor(image_index) == 2 || floor(image_index) == 5) && (!audio_is_playing(oMusic.sfx[sound.clap]))) {
 							//PLAY SFX
-							audio_play_sound(oMusic.sfx[sound.clap], 1, 0, 1);
+							audio_play_sound(oMusic.sfx[sound.clap], 1, 0, volSfx);
 						}
 						else if (floor(image_index) == 4 || ceil(image_index) == 9) audio_stop_sound(oMusic.sfx[sound.clap]);
 					}
@@ -214,9 +214,8 @@ function pAnimation() {
 						
 						with (oTalisman) instance_destroy();
 						
-						
 						//PLAY SFX
-						audio_play_sound(oMusic.sfx[sound.teleport], 1, 0, 1, 0.5);
+						audio_play_sound(oMusic.sfx[sound.teleport], 1, 0, volSfx, 0.5);
 						
 						movement.falling = false;
 						movement.vspd = 0;
