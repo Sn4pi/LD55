@@ -67,7 +67,7 @@ function pTalisman() {
 
 			var _slowMoFade = 0.9 / (chargeCd * 5 * FPS);
 
-			var _slowMoFade = 0.9 / (chargeCd * 1.8 * FPS);		//uninteressant / (chargeCd * DAUER * SEKUNDE);
+			var _slowMoFade = 1 / (chargeCd * 1.8 * FPS);		//uninteressant / (chargeCd * DAUER * SEKUNDE);
 
 			slowMo = Approach(slowMo, 1.0, _slowMoFade);
 			//Throw
