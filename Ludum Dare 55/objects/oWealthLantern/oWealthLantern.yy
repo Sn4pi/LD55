@@ -1,16 +1,15 @@
 {
   "resourceType": "GMObject",
   "resourceVersion": "1.0",
-  "name": "oPlayerPart",
+  "name": "oWealthLantern",
   "eventList": [
     {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,},
-    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,},
   ],
   "managed": true,
   "overriddenProperties": [],
   "parent": {
-    "name": "Player",
-    "path": "folders/Objects/Player.yy",
+    "name": "Collectibles",
+    "path": "folders/Objects/Collectibles.yy",
   },
   "parentObjectId": null,
   "persistent": false,
@@ -29,8 +28,8 @@
   "properties": [],
   "solid": false,
   "spriteId": {
-    "name": "sPlayerParts",
-    "path": "sprites/sPlayerParts/sPlayerParts.yy",
+    "name": "sWealthyLamp",
+    "path": "sprites/sWealthyLamp/sWealthyLamp.yy",
   },
   "spriteMaskId": null,
   "visible": true,

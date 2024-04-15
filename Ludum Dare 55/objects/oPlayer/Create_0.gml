@@ -1,4 +1,7 @@
 /// @description Init Player
+hp = 1;
+wealth = 0;
+
 //Animation
 image_speed = 0;
 
@@ -76,7 +79,6 @@ throwX = x;
 throwY = y;
 
 //States
-hp = 1;
 hurt = time_source_create(time_source_game, 0.2, time_source_units_seconds, doNothing);
 
 //Particles
