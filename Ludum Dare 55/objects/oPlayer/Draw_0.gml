@@ -63,8 +63,9 @@ else if (time_source_get_state(talisReady) == time_source_state_active) {
 
 //JUMP Bar
 if (movement.jumpCharge) {
-	var _barX = x;
-	var _barY = y + 56;
+	var _barX = bbox_left - 7;
+		if (image_xscale == -1) _barX = bbox_right + 7;
+	var _barY = y + 46;
 	var _chargeMax = 14;
 	var _diffMax = movement.jumpDuration[1] - movement.jumpDuration[0];
 	var _diff = movement.jumpDuration[1] - time_source_get_period(movement.longJump);

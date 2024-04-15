@@ -54,7 +54,7 @@ movement = {
 	jumpDuration : [0.05, 1.00],
 	floatDuration : 0.7,
 	jumpCharge : false,
-	jumpInc : (1.0 - 0.05) / (FPS * 1.25)
+	jumpInc : (1.0 - 0.05) / (FPS * 0.75)
 }
 grounded = true;
 
