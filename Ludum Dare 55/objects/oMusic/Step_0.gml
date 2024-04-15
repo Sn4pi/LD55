@@ -3,7 +3,7 @@
 var _trackNum = 0;
 if (room == rm11Corridor || room == rm19_2Threadneedle) _trackNum = 0;
 else if (room == rm21BouncyIntro || room == rm27Sawbridge) _trackNum = 1;
-else if (room == rm31Refillclimb || room == rmtest) _trackNum = 2;
+else if (room == rm31Refillclimb || room == rm32wigglewiggle) _trackNum = 2;
 
 if (musicPlaying != -1 && musicPlaying != music[_trackNum]) {
 	audio_sound_gain(musicPlaying, 0, 1000);
