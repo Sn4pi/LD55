@@ -15,6 +15,8 @@
     {"name":"Sequences","order":9,"path":"folders/Sequences.yy",},
     {"name":"Shaders","order":5,"path":"folders/Shaders.yy",},
     {"name":"Sounds","order":2,"path":"folders/Sounds.yy",},
+    {"name":"Music","order":6,"path":"folders/Sounds/Music.yy",},
+    {"name":"Sfx","order":7,"path":"folders/Sounds/Sfx.yy",},
     {"name":"Collectibles","order":11,"path":"folders/Sprites/Collectibles.yy",},
     {"name":"Partikel","order":4,"path":"folders/Sprites/Partikel.yy",},
     {"name":"Player","order":3,"path":"folders/Sprites/Player.yy",},
@@ -23,8 +25,6 @@
     {"name":"World","order":2,"path":"folders/Sprites/World.yy",},
     {"name":"Tile Sets","order":1,"path":"folders/Tile Sets.yy",},
     {"name":"Timelines","order":7,"path":"folders/Timelines.yy",},
-    {"name":"Music","order":6,"path":"folders/Sounds/Music.yy",},
-    {"name":"Sfx","order":7,"path":"folders/Sounds/Sfx.yy",},
   ],
   "ResourceOrderSettings": [
     {"name":"sPlayerParts","order":2,"path":"sprites/sPlayerParts/sPlayerParts.yy",},
