@@ -35,4 +35,4 @@ viewSurf = -1;
 fadeIn = true;
 fadeOut = false;
 fadeAlpha = 1;
-fadeInc = 1 / (FPS * 2);
+fadeInc = 1 / (FPS * 0.5);		//WIE SCHNELL WECHSELT ES ZUM NÄCHSTEN LEVEL

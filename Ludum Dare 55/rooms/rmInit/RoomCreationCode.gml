@@ -5,4 +5,7 @@ parsys = part_system_create();
 part_system_depth(parsys, 0);
 parem = part_emitter_create(parsys);
 
+globalvar wealth;
+wealth = 0;
+
 room_goto_next();

@@ -68,14 +68,14 @@ var _backY = [
 	0,			//Cloud 1
 	0,			//Cloud 2
 	0,			//Cloud 3
-	0.0,		//Moon
-	320 * 1,	//Bg 2
-	320 * 1,	//Forest 1
-	320 * 1,	//Forest 2
-	320 * 1,	//Forest 3
+	0,		//Moon
+	320,	//Bg 2
+	320,	//Forest 1
+	320,	//Forest 2
+	320	//Forest 3
 ];
 
 for (var i = 0; i < 9; i++) {
 	layer_x(_backId[i], x * _backX[i]);
-	layer_y(_backId[i], y - 320 + _backY[i]);
+	layer_y(_backId[i], y - gameHeight * 0.6 + _backY[i]);
 }

@@ -1,6 +1,5 @@
 /// @description Init Player
 hp = 1;
-wealth = 0;
 
 //Animation
 image_speed = 0;
