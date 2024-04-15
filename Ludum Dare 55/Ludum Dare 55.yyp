@@ -142,6 +142,14 @@
     {"id":{"name":"tl3","path":"tilesets/tl3/tl3.yy",},},
     {"id":{"name":"tl4","path":"tilesets/tl4/tl4.yy",},},
     {"id":{"name":"tl7","path":"tilesets/tl7/tl7.yy",},},
+    {"id":{"name":"SFX_Step2","path":"sounds/SFX_Step2/SFX_Step2.yy",},},
+    {"id":{"name":"rmEND","path":"rooms/rmEND/rmEND.yy",},},
+    {"id":{"name":"LOOP POINTS","path":"notes/LOOP POINTS/LOOP POINTS.yy",},},
+    {"id":{"name":"sSpikes","path":"sprites/sSpikes/sSpikes.yy",},},
+    {"id":{"name":"oDoor","path":"objects/oDoor/oDoor.yy",},},
+    {"id":{"name":"sPlayerThrowCharged","path":"sprites/sPlayerThrowCharged/sPlayerThrowCharged.yy",},},
+    {"id":{"name":"sPlayerIdle2","path":"sprites/sPlayerIdle2/sPlayerIdle2.yy",},},
+    {"id":{"name":"rm11Corridor","path":"rooms/rm11Corridor/rm11Corridor.yy",},},
   ],
   "resourceType":"GMProject",
   "resourceVersion":"2.0",
@@ -168,6 +176,8 @@
     {"roomId":{"name":"rm32wigglewiggle","path":"rooms/rm32wigglewiggle/rm32wigglewiggle.yy",},},
     {"roomId":{"name":"rm23BuzzsawsInverted","path":"rooms/rm23BuzzsawsInverted/rm23BuzzsawsInverted.yy",},},
     {"roomId":{"name":"rm33wagglewaggle","path":"rooms/rm33wagglewaggle/rm33wagglewaggle.yy",},},
+=======
+    {"roomId":{"name":"rmEND","path":"rooms/rmEND/rmEND.yy",},},
   ],
   "templateType":"game",
   "TextureGroups":[

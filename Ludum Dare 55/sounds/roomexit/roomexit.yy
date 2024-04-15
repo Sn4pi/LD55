@@ -22,4 +22,9 @@
   "soundFile":"roomexit.ogg",
   "type":0,
   "volume":1.0,
+  "preload": false,
+  "sampleRate": 44100,
+  "soundFile": "roomexit.ogg",
+  "type": 1,
+  "volume": 1.0,
 }
