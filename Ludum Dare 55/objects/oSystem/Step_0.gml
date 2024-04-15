@@ -1,4 +1,17 @@
 /// @description Main
+if (room == rmTitle) {
+	if (mouse_check_button_pressed(mb_left)) {
+		if (titleImg == sprite_get_number(sTitle) - 1) fadeOut = true;
+		else {
+			if (titleFade == -1) titleFade = 0;
+			else {
+				titleFade = 0;
+				titleImg++;
+			}
+		}
+	}
+}
+
 x += (xTo - x) / smooth;
 y += (yTo - y) / smooth;
 x = round(clamp(x, gameWidth * 0.5, (room_width - gameWidth * 0.5)));

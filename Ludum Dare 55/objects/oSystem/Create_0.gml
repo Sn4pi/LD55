@@ -5,6 +5,10 @@ slowMo = 1.0;
 #macro FPS 60
 #macro delta (delta_time / 1000000) * FPS * slowMo
 
+//Title Menu
+titleImg = 0;
+titleFade = -1;
+
 //Camera
 cam = camera_create();
 zoom = 0.75;
@@ -22,13 +26,13 @@ dx = 0;
 dy = 0;
 smooth = 24;
 
+
 //Pixel perfect
 view_wport[0] = 640;
 view_hport[0] = 360;
 application_surface_enable(false);
 camera_set_view_size(cam, gameWidth + 1, gameHeight + 1);
 display_set_gui_size(gameWidth, gameHeight);
-
 viewSurf = -1;
 
 //Fade Away
