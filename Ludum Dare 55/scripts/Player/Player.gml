@@ -100,6 +100,7 @@ function pTalisman() {
 				//Charged Shot
 				else {
 					_talisman.charged = true;
+					audio_play_sound(oMusic.sfx[sound.chargethrow], 1, 0, volSfx);
 				}
 				
 				//Animate

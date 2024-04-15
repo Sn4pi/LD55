@@ -11,9 +11,11 @@ enum sound {
 	slash,			//DEATH					X
 	step,			//Landing				X
 	teleport,		//Teleport				X
-	throwing		//Throw					X
+	throwing,		//Throw					X
+	chargethrow,
+	roomexitt,
 };
-sfx = [Charging, Chime2, SFX_Clap1, SFX_Fall1, SFX_Slash, SFX_Step2, SFX_Teleport3, SFX_Throw];
+sfx = [Charging, Chime2, SFX_Clap1, SFX_Fall1, SFX_Slash, SFX_Step2, SFX_Teleport3, SFX_Throw,SFX_Chargethrow,roomexit];
 
 music = [TRACK1, TRACK2, TRACK3, TRACKTITLE];
 //Loop Points

@@ -11,6 +11,8 @@ checkGrounded();
 
 //Goto next level
 if (place_meeting(x, y, oDoor) && grounded) {
+	//audio_play_sound(oMusic.sfx[sound.roomexitt], 1, 0, volSfx);
+	
 	oSystem.fadeOut = true;
 	exit;
 }
