@@ -37,6 +37,9 @@ else if (hp <= 0) {
 	
 	//Get taken apart
 	if (!instance_exists(oPlayerPart)) {
+		//PLAY SFX
+		audio_play_sound(oMusic.sfx[sound.slash], 1, 0, 1, 0);
+		
 		for (var i = 0; i < sprite_get_number(sPlayerParts); i++) {
 			var _part = instance_create_depth(x, y - 20, depth, oPlayerPart);
 			_part.image_index = i;

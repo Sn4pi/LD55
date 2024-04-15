@@ -38,6 +38,12 @@ function collisionsY(_vspd) {
 //Ground below?
 function checkGrounded() {
 	if (place_meeting(x, y + 1, oCollision) || (place_meeting(x, floor(y + max(movement.vspd, 1)), oSemiWall) && !place_meeting(x, y - 1, oSemiWall) && movement.vspd >= 0)) {
+		
+		if (!grounded) {
+			//PLAY SFX
+			audio_play_sound(oMusic.sfx[sound.step], 1, 0, 1, 0);
+		}
+		
 		grounded = true;
 		if (object_index == oPlayer) {
 			if (!place_meeting(x, y + 1, oBouncyWall)) movement.vspd = 0;
