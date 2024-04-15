@@ -36,6 +36,7 @@
     {"name":"inst_28521B85","path":"rooms/rm13DropAndRise/rm13DropAndRise.yy",},
     {"name":"inst_64084E23","path":"rooms/rm13DropAndRise/rm13DropAndRise.yy",},
     {"name":"inst_3CB6C260","path":"rooms/rm13DropAndRise/rm13DropAndRise.yy",},
+    {"name":"inst_64084E23","path":"rooms/rm13DropAndRise/rm13DropAndRise.yy",},
   ],
   "isDnd": false,
   "layers": [
