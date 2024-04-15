@@ -2,9 +2,9 @@
   "resourceType": "GMSprite",
   "resourceVersion": "1.0",
   "name": "tileset4",
-  "bbox_bottom": 223,
+  "bbox_bottom": 301,
   "bbox_left": 0,
-  "bbox_right": 242,
+  "bbox_right": 287,
   "bbox_top": 0,
   "bboxMode": 0,
   "collisionKind": 1,
@@ -13,14 +13,14 @@
   "edgeFiltering": false,
   "For3D": false,
   "frames": [
-    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"31f5fa48-30a8-4b52-8d29-b0412c65d26e",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"8fa0e42e-5ac4-415f-aa69-3bc5aa32129a",},
   ],
   "gridX": 0,
   "gridY": 0,
   "height": 320,
   "HTile": false,
   "layers": [
-    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"821e4849-6a1b-4299-8e1e-fd932a24aa15","blendMode":0,"displayName":"default","isLocked":false,"opacity":100.0,"visible":true,},
+    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"e458793a-8a36-449c-bd94-8035c2972568","blendMode":0,"displayName":"default","isLocked":false,"opacity":100.0,"visible":true,},
   ],
   "nineSlice": null,
   "origin": 0,
@@ -54,7 +54,7 @@
     "timeUnits": 1,
     "tracks": [
       {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"1.0","Keyframes":[
-            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"31f5fa48-30a8-4b52-8d29-b0412c65d26e","path":"sprites/tileset4/tileset4.yy",},},},"Disabled":false,"id":"0a687f81-3280-435d-a7fa-3b824a1f669e","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
+            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"8fa0e42e-5ac4-415f-aa69-3bc5aa32129a","path":"sprites/tileset4/tileset4.yy",},},},"Disabled":false,"id":"322a630f-2e14-4b55-a8db-12a94510fdce","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
           ],},"modifiers":[],"spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
     "visibleRange": null,
