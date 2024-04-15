@@ -1,4 +1,8 @@
-/// @description FADE In and Out
+/// @description Cursor, FADE In and Out
+//Draw Cursor
+draw_sprite_ext(sCursor, 0, device_mouse_x_to_gui(0), device_mouse_y_to_gui(0), 1, 1, 0, c_white, 1);
+
+//Draw Fade
 if (fadeOut) {
 	if (fadeAlpha < 1) fadeAlpha = Approach(fadeAlpha, 1, fadeInc);
 	//Room Transition

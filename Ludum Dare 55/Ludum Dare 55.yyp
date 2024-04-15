@@ -60,6 +60,7 @@
     {"id":{"name":"sParallax","path":"sprites/sParallax/sParallax.yy",},},
     {"id":{"name":"oSystem","path":"objects/oSystem/oSystem.yy",},},
     {"id":{"name":"sWealthyLamp","path":"sprites/sWealthyLamp/sWealthyLamp.yy",},},
+    {"id":{"name":"sCursor","path":"sprites/sCursor/sCursor.yy",},},
     {"id":{"name":"tl4","path":"tilesets/tl4/tl4.yy",},},
     {"id":{"name":"oCollision","path":"objects/oCollision/oCollision.yy",},},
     {"id":{"name":"SFX_Throw","path":"sounds/SFX_Throw/SFX_Throw.yy",},},

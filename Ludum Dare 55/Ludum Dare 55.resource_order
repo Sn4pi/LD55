@@ -36,6 +36,7 @@
     {"name":"sParallax","order":5,"path":"sprites/sParallax/sParallax.yy",},
     {"name":"oSystem","order":1,"path":"objects/oSystem/oSystem.yy",},
     {"name":"sWealthyLamp","order":2,"path":"sprites/sWealthyLamp/sWealthyLamp.yy",},
+    {"name":"sCursor","order":12,"path":"sprites/sCursor/sCursor.yy",},
     {"name":"tl4","order":3,"path":"tilesets/tl4/tl4.yy",},
     {"name":"oCollision","order":1,"path":"objects/oCollision/oCollision.yy",},
     {"name":"SFX_Throw","order":7,"path":"sounds/SFX_Throw/SFX_Throw.yy",},
