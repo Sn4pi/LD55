@@ -69,6 +69,8 @@ setCharge = function() {
 }
 chargeCd = 1.25;
 chargeTimer = time_source_create(time_source_game, chargeCd, time_source_units_seconds, setCharge);
+talisReadyCd = 1.5;
+talisReady = time_source_create(time_source_game, talisReadyCd, time_source_units_seconds, doNothing);
 
 throwX = x;
 throwY = y;

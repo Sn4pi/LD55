@@ -51,7 +51,7 @@ function pTalisman() {
 	switch (abilityState) {
 		//Activate aim mode
 		case talisman.inPocket:
-			if (rmb && !instance_exists(oTalisman)) {
+			if (time_source_get_state(talisReady) != time_source_state_active && rmb && !instance_exists(oTalisman)) {
 				abilityState = talisman.aim;
 				charged = false;
 				slowMo = 0.1;
@@ -164,6 +164,9 @@ function pAnimation() {
 						partTeleport(FPS * 0.2, _dir2, _len2 / sprite_get_width(sTeleport), choose(1, 2));
 						part_emitter_region(parsys, parem, x, x, y, y, ps_shape_line, ps_distr_linear);
 						part_emitter_burst(parsys, parem, pTeleport, 1);
+						
+						//Talisman cooldown
+						time_source_start(talisReady);
 						
 						//Talisman is on wall
 						var i = 1;

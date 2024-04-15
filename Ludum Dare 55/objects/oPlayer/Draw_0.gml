@@ -6,11 +6,11 @@ if (abilityState == talisman.aim && image_index == clamp(image_index, 2, animati
 	var _dir = point_direction(xToGUI * oSystem.zoom, yToGUI * oSystem.zoom, mx, my);
 	
 	#region CHARGE Bar
-	var _barX = x + 8;
+	var _barX = x + 8 * image_xscale;
 	var _barY = bbox_bottom + 24;
 	var _chargeMax = 20;
 	var _img = 0;
-	_img = floor((1 - time_source_get_time_remaining(chargeTimer) / time_source_get_period(chargeTimer)) * _chargeMax);
+	_img = floor((1.15 - time_source_get_time_remaining(chargeTimer) / time_source_get_period(chargeTimer)) * _chargeMax);
 	if (_img == _chargeMax) {
 		if (throwBarFull <= 4) throwBarFull = Approach(throwBarFull, 4, 1 / (FPS * 0.1));
 		_img = _chargeMax + throwBarFull;
@@ -19,7 +19,7 @@ if (abilityState == talisman.aim && image_index == clamp(image_index, 2, animati
 		throwBarFull = 0;
 	}
 	draw_self();
-	draw_sprite_ext(sHudThrow, _img, _barX, _barY, 1, 1, 0, c_white, 1);
+	draw_sprite_ext(sHudThrow, _img, _barX, _barY, image_xscale, 1, 0, c_white, 1);
 	#endregion
 	
 	
@@ -42,12 +42,13 @@ if (abilityState == talisman.aim && image_index == clamp(image_index, 2, animati
 }
 
 //TALISMAN Bar
-else if (instance_exists(oTalisman)) {
+else if (time_source_get_state(talisReady) == time_source_state_active) {
 	var _barX = bbox_left;
+	if (image_xscale == -1) _barX = bbox_right;
 	var _barY = y + 4;
 	var _chargeMax = 15;
 	var _img = 0;
-	_img = floor((1.25 - time_source_get_time_remaining(oTalisman.deathTimer) / time_source_get_period(oTalisman.deathTimer)) * _chargeMax);
+	_img = floor((1.1 - time_source_get_time_remaining(talisReady) / time_source_get_period(talisReady)) * _chargeMax);
 	if (_img == _chargeMax) {
 		if (talisBarFull <= 3) talisBarFull = Approach(talisBarFull, 3, 1 / (FPS * 0.1));
 		_img = _chargeMax + talisBarFull;
@@ -56,7 +57,7 @@ else if (instance_exists(oTalisman)) {
 		talisBarFull = 0;
 	}
 	
-	draw_sprite_ext(sHudTalisman, _img, _barX, _barY, 1, 1, 0, c_white, 1);
+	draw_sprite_ext(sHudTalisman, _img, _barX, _barY, image_xscale, 1, 0, c_white, 1);
 	draw_self();
 }
 
@@ -77,6 +78,6 @@ if (movement.jumpCharge) {
 		_img = _chargeMax + jumpBarFull;
 	}
 	
-	draw_sprite_ext(sHudJump, _img, _barX, _barY, 1, 1, 0, c_white, 1);
+	draw_sprite_ext(sHudJump, _img, _barX, _barY, image_xscale, 1, 0, c_white, 1);
 	draw_self();
 }
