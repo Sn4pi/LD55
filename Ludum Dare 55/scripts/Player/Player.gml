@@ -16,6 +16,9 @@ function pMovement() {
 			time_source_reconfigure(movement.longJump, Approach(time_source_get_period(movement.longJump), movement.jumpDuration[1], movement.jumpInc), time_source_units_seconds, startFalling);
 			
 			if (spaceRelease) {
+				//PLAY SFX
+				audio_play_sound(oMusic.sfx[sound.fall], 1, 0, 1, 0);
+				
 				movement.jumpCharge = false;
 				movement.vspd = movement.jumpSpd - (time_source_get_period(movement.longJump) * 3.9);
 				time_source_start(movement.longJump);
@@ -70,6 +73,9 @@ function pTalisman() {
 			//Throw
 			if (lmbReleased && !instance_exists(oTalisman)) {
 				slowMo = Approach(slowMo, 1.0, _slowMoFade);
+				
+				//PLAY SFX
+				audio_play_sound(oMusic.sfx[sound.throwing], 1, 0, 1);
 				
 				throwX = x;
 				throwY = y;
@@ -160,7 +166,14 @@ function pAnimation() {
 		case talisman.thrown:
 			//Teleport
 			if (sprite_index == animation.spr[pSprites.teleport]) {
-					if (image_index < animation.teleImg[0]) image_index = Approach(image_index, animation.teleImg[0], animation.teleSpd);
+					if (image_index < animation.teleImg[0]) {
+						image_index = Approach(image_index, animation.teleImg[0], animation.teleSpd);
+						if ((floor(image_index) == 2 || floor(image_index) == 5) && (!audio_is_playing(oMusic.sfx[sound.clap]))) {
+							//PLAY SFX
+							audio_play_sound(oMusic.sfx[sound.clap], 1, 0, 1);
+						}
+						else if (floor(image_index) == 4 || ceil(image_index) == 9) audio_stop_sound(oMusic.sfx[sound.clap]);
+					}
 					else if (image_index == animation.teleImg[0] && instance_exists(oTalisman)) {
 						var _len = point_distance(throwX, throwY, oTalisman.x, oTalisman.y);
 						var _dir = point_direction(throwX, throwY, oTalisman.x, oTalisman.y);
@@ -200,6 +213,10 @@ function pAnimation() {
 						}
 						
 						with (oTalisman) instance_destroy();
+						
+						
+						//PLAY SFX
+						audio_play_sound(oMusic.sfx[sound.teleport], 1, 0, 1, 0.5);
 						
 						movement.falling = false;
 						movement.vspd = 0;
