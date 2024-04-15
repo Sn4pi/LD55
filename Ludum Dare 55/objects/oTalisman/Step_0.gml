@@ -63,11 +63,6 @@ else {
 	while (i > 0 && collision_line(x, y, x + lengthdir_x(i, direction), y + lengthdir_y(i, direction), oCollision, 1, 1)) {
 		i--;
 	}
-	if (collision_line(x, y, x + lengthdir_x(i, direction), y + lengthdir_y(i, direction), oFuneralLantern, 1, 1)) {
-		time_source_start(oPlayer.talisReady);
-		die();
-		exit;
-	}
 	x = x + lengthdir_x(i, direction);
 	y = y + lengthdir_y(i, direction);
 	

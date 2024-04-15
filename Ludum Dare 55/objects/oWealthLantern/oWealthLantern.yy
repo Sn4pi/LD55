@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
   "resourceType": "GMObject",
   "resourceVersion": "1.0",
   "name": "oWealthLantern",
@@ -6,6 +7,12 @@
     {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,},
     {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":2,"isDnD":false,},
     {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,},
+=======
+  "$GMObject":"",
+  "%Name":"oWealthLantern",
+  "eventList":[
+    {"$GMEvent":"","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+>>>>>>> parent of b94aba6 (Merge branch 'main' into Nick's-branch)
   ],
   "managed": true,
   "overriddenProperties": [],

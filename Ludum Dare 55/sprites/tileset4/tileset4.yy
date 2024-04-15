@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
   "resourceType": "GMSprite",
   "resourceVersion": "1.0",
   "name": "tileset4",
@@ -21,6 +22,29 @@
   "HTile": false,
   "layers": [
     {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"e458793a-8a36-449c-bd94-8035c2972568","blendMode":0,"displayName":"default","isLocked":false,"opacity":100.0,"visible":true,},
+=======
+  "$GMSprite":"",
+  "%Name":"tileset4",
+  "bboxMode":0,
+  "bbox_bottom":223,
+  "bbox_left":0,
+  "bbox_right":242,
+  "bbox_top":0,
+  "collisionKind":1,
+  "collisionTolerance":0,
+  "DynamicTexturePage":false,
+  "edgeFiltering":false,
+  "For3D":false,
+  "frames":[
+    {"$GMSpriteFrame":"","%Name":"31f5fa48-30a8-4b52-8d29-b0412c65d26e","name":"31f5fa48-30a8-4b52-8d29-b0412c65d26e","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+  ],
+  "gridX":0,
+  "gridY":0,
+  "height":320,
+  "HTile":false,
+  "layers":[
+    {"$GMImageLayer":"","%Name":"821e4849-6a1b-4299-8e1e-fd932a24aa15","blendMode":0,"displayName":"default","isLocked":false,"name":"821e4849-6a1b-4299-8e1e-fd932a24aa15","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
+>>>>>>> parent of b94aba6 (Merge branch 'main' into Nick's-branch)
   ],
   "nineSlice": null,
   "origin": 0,
@@ -28,6 +52,7 @@
     "name": "TileSets",
     "path": "folders/Sprites/TileSets.yy",
   },
+<<<<<<< HEAD
   "preMultiplyAlpha": false,
   "sequence": {
     "resourceType": "GMSequence",
@@ -56,6 +81,52 @@
       {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"1.0","Keyframes":[
             {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"8fa0e42e-5ac4-415f-aa69-3bc5aa32129a","path":"sprites/tileset4/tileset4.yy",},},},"Disabled":false,"id":"322a630f-2e14-4b55-a8db-12a94510fdce","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
           ],},"modifiers":[],"spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
+=======
+  "preMultiplyAlpha":false,
+  "resourceType":"GMSprite",
+  "resourceVersion":"2.0",
+  "sequence":{
+    "$GMSequence":"",
+    "%Name":"tileset4",
+    "autoRecord":true,
+    "backdropHeight":768,
+    "backdropImageOpacity":0.5,
+    "backdropImagePath":"",
+    "backdropWidth":1366,
+    "backdropXOffset":0.0,
+    "backdropYOffset":0.0,
+    "events":{
+      "$KeyframeStore<MessageEventKeyframe>":"",
+      "Keyframes":[],
+      "resourceType":"KeyframeStore<MessageEventKeyframe>",
+      "resourceVersion":"2.0",
+    },
+    "eventStubScript":null,
+    "eventToFunction":{},
+    "length":1.0,
+    "lockOrigin":false,
+    "moments":{
+      "$KeyframeStore<MomentsEventKeyframe>":"",
+      "Keyframes":[],
+      "resourceType":"KeyframeStore<MomentsEventKeyframe>",
+      "resourceVersion":"2.0",
+    },
+    "name":"tileset4",
+    "playback":1,
+    "playbackSpeed":30.0,
+    "playbackSpeedType":0,
+    "resourceType":"GMSequence",
+    "resourceVersion":"2.0",
+    "showBackdrop":true,
+    "showBackdropImage":false,
+    "timeUnits":1,
+    "tracks":[
+      {"$GMSpriteFramesTrack":"","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"$KeyframeStore<SpriteFrameKeyframe>":"","Keyframes":[
+            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"31f5fa48-30a8-4b52-8d29-b0412c65d26e","path":"sprites/tileset4/tileset4.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+              },"Disabled":false,"id":"0a687f81-3280-435d-a7fa-3b824a1f669e","IsCreationKey":false,"Key":0.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+          ],"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"2.0",},"modifiers":[],"name":"frames","resourceType":"GMSpriteFramesTrack","resourceVersion":"2.0","spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
+>>>>>>> parent of b94aba6 (Merge branch 'main' into Nick's-branch)
     ],
     "visibleRange": null,
     "volume": 1.0,

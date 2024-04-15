@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
   "resourceType": "GMSprite",
   "resourceVersion": "1.0",
   "name": "tilesetprop",
@@ -14,6 +15,22 @@
   "For3D": false,
   "frames": [
     {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"73761f02-a567-4316-81eb-72a46f5c05c9",},
+=======
+  "$GMSprite":"",
+  "%Name":"tilesetprop",
+  "bboxMode":0,
+  "bbox_bottom":274,
+  "bbox_left":0,
+  "bbox_right":639,
+  "bbox_top":0,
+  "collisionKind":1,
+  "collisionTolerance":0,
+  "DynamicTexturePage":false,
+  "edgeFiltering":false,
+  "For3D":false,
+  "frames":[
+    {"$GMSpriteFrame":"","%Name":"73761f02-a567-4316-81eb-72a46f5c05c9","name":"73761f02-a567-4316-81eb-72a46f5c05c9","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+>>>>>>> parent of b94aba6 (Merge branch 'main' into Nick's-branch)
   ],
   "gridX": 32,
   "gridY": 32,

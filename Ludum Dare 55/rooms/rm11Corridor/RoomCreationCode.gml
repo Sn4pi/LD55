@@ -1,1 +1,0 @@
-timerGo = true;

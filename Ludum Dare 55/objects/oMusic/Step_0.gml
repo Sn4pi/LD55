@@ -1,5 +1,11 @@
 /// @description Play Music, sort SFX
-if (musicPlaying != -1 && musicPlaying != music[trackNum]) {
+//Select the first room of THIS track and the last room playing this TRACK
+var _trackNum = 0;
+if (room == rm11Corridor || room == rm19_2Threadneedle) _trackNum = 0;
+else if (room == rm21BouncyIntro || room == rm27Sawbridge) _trackNum = 1;
+else if (room == rm31Refillclimb || room == rm32wigglewiggle) _trackNum = 2;
+
+if (musicPlaying != -1 && musicPlaying != music[_trackNum]) {
 	audio_sound_gain(musicPlaying, 0, 1000);
 	if (audio_sound_get_gain(musicPlaying)) {
 		audio_stop_sound(musicPlaying);
@@ -8,7 +14,7 @@ if (musicPlaying != -1 && musicPlaying != music[trackNum]) {
 }
 
 else if (musicPlaying == -1) {
-	musicPlaying = music[trackNum];
+	musicPlaying = music[_trackNum];
 	audio_play_sound(musicPlaying, 100, true);
 	audio_sound_gain(musicPlaying, 0, 0);
 	audio_sound_gain(musicPlaying, volMusic, 1000);

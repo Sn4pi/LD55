@@ -1,6 +1,3 @@
-wealthX = -1;
-wealthY = -1;
-
 if (instance_exists(oPlayer)) {
 	x = oPlayer.x;
 	y = oPlayer.y;

@@ -1,5 +1,5 @@
 /// @description Refill Talisman instantly!
-if (!other.visible || !visible) exit;
+if (!other.visible) exit;
 
 if (time_source_get_state(talisReady) == time_source_state_active) {
 	time_source_stop(talisReady);
