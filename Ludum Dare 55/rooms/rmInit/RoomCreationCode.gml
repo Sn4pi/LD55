@@ -6,7 +6,9 @@ parsys = part_system_create();
 part_system_depth(parsys, 0);
 parem = part_emitter_create(parsys);
 
-globalvar wealth;
+globalvar wealth, wealthX, wealthY;
 wealth = 0;
+wealthX = -1;
+wealthY = -1;
 
 room_goto_next();
