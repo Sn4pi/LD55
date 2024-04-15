@@ -51,7 +51,7 @@ function pTalisman() {
 	switch (abilityState) {
 		//Activate aim mode
 		case talisman.inPocket:
-			if (time_source_get_state(talisReady) != time_source_state_active && rmb && !instance_exists(oTalisman)) {
+			if (time_source_get_state(talisReady) != time_source_state_active && lmb && !instance_exists(oTalisman)) {
 				abilityState = talisman.aim;
 				charged = false;
 				slowMo = 0.1;
@@ -61,10 +61,10 @@ function pTalisman() {
 		
 		//Aim and throw
 		case talisman.aim:
-			var _slowMoFade = 0.9 / (chargeCd * 1.5 * FPS);
+			var _slowMoFade = 0.9 / (chargeCd * 1.8 * FPS);
 			slowMo = Approach(slowMo, 1.0, _slowMoFade);
 			//Throw
-			if (rmbReleased && !instance_exists(oTalisman)) {
+			if (lmbReleased && !instance_exists(oTalisman)) {
 				slowMo = 1.0;
 				
 				throwX = x;
@@ -99,7 +99,7 @@ function pTalisman() {
 		
 		//Teleport yourself
 		case talisman.thrown:
-			if (rmb && sprite_index != animation.spr[pSprites.teleport]) {
+			if (lmb && sprite_index != animation.spr[pSprites.teleport]) {
 				image_index = 0;
 				sprite_index = animation.spr[pSprites.teleport];
 			}
@@ -148,7 +148,7 @@ function pAnimation() {
 						if (image_index == animation.throwChImg[1]) abilityState = talisman.thrown;
 					}
 					
-					if (rmb) abilityState = talisman.thrown;
+					if (lmb) abilityState = talisman.thrown;
 				}
 			
 		break;
