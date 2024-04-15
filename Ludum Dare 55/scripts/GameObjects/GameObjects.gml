@@ -27,7 +27,7 @@ function collisionsY(_vspd) {
 	var _collisions = move_and_collide(0, _vspd * delta, oCollision, 8);
 	if (array_length(_collisions) > 0) {
 		if (_collisions[0].object_index == oBouncyWall) {
-			_vspd *= -1.5;
+			_vspd *= -2.5;
 		}
 		else _vspd = 0;
 	}
