@@ -23,11 +23,7 @@ if (hp > 0) {
 	pTalisman();
 
 	//Get damage by spikes
-	if (place_meeting(x, y, oSpikes)) {
-		pDamage();
-		
-		
-	}
+	if (place_meeting(x, y, oSpikes) || place_meeting(x, y, oBuzzsaw)) pDamage();
 	//Skip Level
 		if (nextlevel) room_goto_next();
 
