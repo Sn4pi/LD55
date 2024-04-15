@@ -31,12 +31,11 @@
     {"name":"inst_5A3987A5","path":"rooms/rm13DropAndRise/rm13DropAndRise.yy",},
     {"name":"inst_FBCE74D","path":"rooms/rm13DropAndRise/rm13DropAndRise.yy",},
     {"name":"inst_275BD5C6","path":"rooms/rm13DropAndRise/rm13DropAndRise.yy",},
-    {"name":"inst_238AAFCA","path":"rooms/rm13DropAndRise/rm13DropAndRise.yy",},
-    {"name":"inst_3CB6C260","path":"rooms/rm13DropAndRise/rm13DropAndRise.yy",},
     {"name":"inst_2A220BAF","path":"rooms/rm13DropAndRise/rm13DropAndRise.yy",},
     {"name":"inst_16C917AE","path":"rooms/rm13DropAndRise/rm13DropAndRise.yy",},
     {"name":"inst_28521B85","path":"rooms/rm13DropAndRise/rm13DropAndRise.yy",},
     {"name":"inst_64084E23","path":"rooms/rm13DropAndRise/rm13DropAndRise.yy",},
+    {"name":"inst_3CB6C260","path":"rooms/rm13DropAndRise/rm13DropAndRise.yy",},
   ],
   "isDnd": false,
   "layers": [
@@ -44,7 +43,6 @@
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_2A9AF1D1_3","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"oPlayer","path":"objects/oPlayer/oPlayer.yy",},"properties":[],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":897.0,"y":2486.0,},
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_FBCE74D","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"oDoor","path":"objects/oDoor/oDoor.yy",},"properties":[],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":1664.0,"y":2464.0,},
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_275BD5C6","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"oWealthLantern","path":"objects/oWealthLantern/oWealthLantern.yy",},"properties":[],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":1232.0,"y":2353.0,},
-        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_238AAFCA","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"oBuzzsaw","path":"objects/oBuzzsaw/oBuzzsaw.yy",},"properties":[],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":1250.0,"y":2305.0,},
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_3CB6C260","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"oBuzzsaw","path":"objects/oBuzzsaw/oBuzzsaw.yy",},"properties":[],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":1250.0,"y":2435.0,},
       ],"layers":[],"properties":[],"userdefinedDepth":false,"visible":true,},
     {"resourceType":"GMRInstanceLayer","resourceVersion":"1.0","name":"Level","depth":100,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"instances":[
