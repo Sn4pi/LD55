@@ -52,7 +52,7 @@ movement = {
 	falling : true,
 	longJump : time_source_create(time_source_game, 0.2, time_source_units_seconds, startFalling),
 	jumpDuration : [0.05, 1.00],
-	floatDuration : 0.51,
+	floatDuration : 0.7,
 	jumpCharge : false,
 	jumpInc : (1.0 - 0.05) / (FPS * 1.25)
 }
