@@ -91,6 +91,9 @@ function pTalisman() {
 				else {
 					_talisman.charged = true;
 				}
+				
+				//Animate
+				image_index = animation.throwImg[0] + 1;
 			}
 		break;
 		
@@ -169,30 +172,28 @@ function pAnimation() {
 						time_source_start(talisReady);
 						
 						//Talisman is on wall
-						var i = 1;
+						var i = _len;
 						var _skip = 0;
 						//How long is there free space?
-						while (i < _len && !place_meeting(throwX + lengthdir_x(i, _dir), throwY + lengthdir_y(i, _dir), oCollision)) {
-							i++;
-							_skip = 0;
+						while (i > 0 && !place_meeting(throwX + lengthdir_x(i, _dir), throwY + lengthdir_y(i, _dir), oCollision)) {
+							i--;
 							show_debug_message("FREE");
-						}
-						//How long is a blockade there?
-						while (i < _len && place_meeting(throwX + lengthdir_x(i, _dir), throwY + lengthdir_y(i, _dir), oCollision)) {
-							i++;
-							_skip = 1;
-							show_debug_message("BLOCKED");
-						}
-						//Is there free space again ?
-						while (i < _len && place_meeting(throwX + lengthdir_x(i, _dir), throwY + lengthdir_y(i, _dir), oCollision)) {
-							i++;
-							_skip = 2;
-							show_debug_message("FREE TO SKIP");
 						}
 						
 						x = throwX;
 						y = throwY;
 						move_and_collide(lengthdir_x(_len, _dir), lengthdir_y(_len, _dir), oCollision, max(floor(_len) / 10, 10));
+						
+						//PowerUp?
+						var _powerUp = collision_line(throwX, throwY, throwX + lengthdir_x(i, _dir), throwY + lengthdir_y(i, _dir), oPowerupRefill, 1, 1);
+						if (_powerUp != noone && _powerUp.visible) {
+							if (time_source_get_state(talisReady) == time_source_state_active) time_source_stop(talisReady);
+							with (_powerUp) {
+								visible = false;
+								image_alpha = 0;
+								alarm[0] = FPS * 3;
+							}
+						}
 						
 						with (oTalisman) instance_destroy();
 						

@@ -10,7 +10,7 @@ if (abilityState == talisman.aim && image_index == clamp(image_index, 2, animati
 	var _barY = bbox_bottom + 24;
 	var _chargeMax = 20;
 	var _img = 0;
-	_img = floor((1.15 - time_source_get_time_remaining(chargeTimer) / time_source_get_period(chargeTimer)) * _chargeMax);
+	_img = floor((1.05 - time_source_get_time_remaining(chargeTimer) / time_source_get_period(chargeTimer)) * _chargeMax);
 	if (_img == _chargeMax) {
 		if (throwBarFull <= 4) throwBarFull = Approach(throwBarFull, 4, 1 / (FPS * 0.1));
 		_img = _chargeMax + throwBarFull;

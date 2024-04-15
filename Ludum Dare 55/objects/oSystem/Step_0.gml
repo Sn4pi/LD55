@@ -38,3 +38,44 @@ var pm = matrix_build_projection_ortho(gameWidth, gameHeight, 1, 10000);
 if (camera_get_proj_mat(cam) != pm) {
 	camera_set_proj_mat(cam, pm);
 }
+
+//Background
+var _backId = [
+	layer_get_id("B0"),
+	layer_get_id("B1"),
+	layer_get_id("B2"),
+	layer_get_id("B3"),
+	layer_get_id("B4"),
+	layer_get_id("B5"),
+	layer_get_id("B6"),
+	layer_get_id("B7"),
+	layer_get_id("B8"),
+];
+
+var _backX = [
+	0,			//Bg 1
+	0.05,		//Cloud 1
+	0.2,		//Cloud 2
+	0.3,		//Cloud 3
+	0,			//Moon
+	0,			//Bg 2
+	0.05,		//Forest 1
+	0.3,		//Forest 2
+	0.4,		//Forest 3
+];
+var _backY = [
+	0,			//Bg 1
+	0,			//Cloud 1
+	0,			//Cloud 2
+	0,			//Cloud 3
+	0.0,		//Moon
+	320 * 1,	//Bg 2
+	320 * 1,	//Forest 1
+	320 * 1,	//Forest 2
+	320 * 1,	//Forest 3
+];
+
+for (var i = 0; i < 9; i++) {
+	layer_x(_backId[i], x * _backX[i]);
+	layer_y(_backId[i], y - 320 + _backY[i]);
+}
