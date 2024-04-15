@@ -24,14 +24,14 @@ var _backId = [
 
 var _backY = [
 	room_height - 320 * 2,		//Bg 1
-	room_height - 320 * 2,		//Cloud 1
-	room_height - 320 * 2,		//Cloud 2
-	room_height - 320 * 2,		//Cloud 3
+	room_height - 320 * 2 + 60,		//Cloud 1
+	room_height - 320 * 2 + 30,		//Cloud 2
+	room_height - 320 * 2 + 10,		//Cloud 3
 	room_height - 320 * 2,		//Moon
 	room_height - 320 * 1,		//Bg 2
-	room_height - 320 * 1,		//Forest 1
-	room_height - 320 * 1,		//Forest 2
-	room_height - 320 * 1,		//Forest 3
+	room_height - 320 * 1 + 60,		//Forest 1
+	room_height - 320 * 1 + 30,	//Forest 2
+	room_height - 320 * 1 + 10,		//Forest 3
 ];
 
 for (var i = 0; i < 9; i++) {

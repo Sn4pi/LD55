@@ -2,9 +2,9 @@
   "resourceType": "GMSprite",
   "resourceVersion": "1.0",
   "name": "sParallax",
-  "bbox_bottom": 319,
+  "bbox_bottom": 159,
   "bbox_left": 0,
-  "bbox_right": 2559,
+  "bbox_right": 1279,
   "bbox_top": 0,
   "bboxMode": 0,
   "collisionKind": 1,
@@ -25,7 +25,7 @@
   ],
   "gridX": 0,
   "gridY": 0,
-  "height": 320,
+  "height": 160,
   "HTile": false,
   "layers": [
     {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"665f8aa0-11d4-4984-ab38-facec2a5c19c","blendMode":0,"displayName":"default","isLocked":false,"opacity":100.0,"visible":true,},
@@ -86,5 +86,5 @@
   },
   "type": 0,
   "VTile": false,
-  "width": 2560,
+  "width": 1280,
 }

@@ -65,13 +65,13 @@ var _backX = [
 ];
 var _backY = [
 	0,			//Bg 1
-	0,			//Cloud 1
-	0,			//Cloud 2
+	15,			//Cloud 1
+	10,			//Cloud 2
 	0,			//Cloud 3
-	0,		//Moon
+	120,		//Moon
 	320,	//Bg 2
-	320,	//Forest 1
-	320,	//Forest 2
+	310,	//Forest 1
+	315,	//Forest 2
 	320	//Forest 3
 ];
 
