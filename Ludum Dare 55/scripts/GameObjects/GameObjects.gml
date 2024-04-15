@@ -41,7 +41,7 @@ function checkGrounded() {
 		
 		if (!grounded) {
 			//PLAY SFX
-			audio_play_sound(oMusic.sfx[sound.step], 1, 0, 1, 0);
+			audio_play_sound(oMusic.sfx[sound.step], 1, 0, volSfx);
 		}
 		
 		grounded = true;
