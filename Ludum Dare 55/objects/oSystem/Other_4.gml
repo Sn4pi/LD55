@@ -10,16 +10,6 @@ view_wport[0] = gameWidth;
 view_hport[0] = gameHeight;
 
 //Background
-layer_create(600, "B0");
-layer_create(700, "B1");
-layer_create(800, "B2");
-layer_create(900, "B3");
-layer_create(1000, "B4");
-layer_create(1100, "B5");
-layer_create(1200, "B6");
-layer_create(1300, "B7");
-layer_create(1400, "B8");
-
 var _backId = [
 	layer_get_id("B0"),
 	layer_get_id("B1"),
@@ -45,7 +35,7 @@ var _backY = [
 ];
 
 for (var i = 0; i < 9; i++) {
-	var _bg = layer_background_create(_backId[i], sParallax);
+	var _bg = layer_background_get_id(_backId[i]);
 	layer_background_htiled(_bg, true);
 	layer_background_speed(_bg, 0);
 	layer_background_index(_bg, i);
