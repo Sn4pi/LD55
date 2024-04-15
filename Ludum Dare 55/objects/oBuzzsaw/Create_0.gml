@@ -1,9 +1,9 @@
 /// @description Init
 spd = 0;
-spdMax = 9;
-spdMin = 1;
+spdMax = 12;
+spdMin = 2;
 
-travelLen = 96;
+travelLen = 64;
 horizontalBorder = [xstart - travelLen, xstart + travelLen];
 verticalBorder = [ystart - travelLen, ystart + travelLen];
 
