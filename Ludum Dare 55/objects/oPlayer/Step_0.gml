@@ -28,6 +28,7 @@ if (hp > 0) {
 		if (nextlevel) room_goto_next();
 
 }
+
 //DED
 else if (hp <= 0) {
 	movement.hspd = 0;
@@ -48,10 +49,12 @@ else if (hp <= 0) {
 	}
 	
 	//Retry
-	if (restart) {
-		with (oPlayerPart) instance_destroy();
-		visible = true;
-		room_restart();
+	if (restart && instance_exists(oPlayerPart) && !oPlayerPart.flyBack) {
+		with (oPlayerPart) {
+			hspd = 0;
+			vspd = 0;
+			flyBack = true;
+		}
 	}
 }
 
