@@ -98,5 +98,13 @@
     {"name":"tileset4","order":3,"path":"sprites/tileset4/tileset4.yy",},
     {"name":"rm19_2Threadneedle","order":12,"path":"rooms/rm19_2Threadneedle/rm19_2Threadneedle.yy",},
     {"name":"tl7","order":8,"path":"tilesets/tl7/tl7.yy",},
+    {"name":"SFX_Step2","order":5,"path":"sounds/SFX_Step2/SFX_Step2.yy",},
+    {"name":"rmEND","order":22,"path":"rooms/rmEND/rmEND.yy",},
+    {"name":"LOOP POINTS","order":15,"path":"notes/LOOP POINTS/LOOP POINTS.yy",},
+    {"name":"sSpikes","order":2,"path":"sprites/sSpikes/sSpikes.yy",},
+    {"name":"oDoor","order":5,"path":"objects/oDoor/oDoor.yy",},
+    {"name":"sPlayerThrowCharged","order":9,"path":"sprites/sPlayerThrowCharged/sPlayerThrowCharged.yy",},
+    {"name":"sPlayerIdle2","order":5,"path":"sprites/sPlayerIdle2/sPlayerIdle2.yy",},
+    {"name":"rm11Corridor","order":6,"path":"rooms/rm11Corridor/rm11Corridor.yy",},
   ],
 }
