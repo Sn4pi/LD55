@@ -1,16 +1,4 @@
 function input() {
-	//Keyboard
-	left = keyboard_check(ord("A")) || keyboard_check(vk_left);
-	down = keyboard_check(ord("S")) || keyboard_check(vk_down);
-	right = keyboard_check(ord("D")) || keyboard_check(vk_right);
-	
-	interact = keyboard_check_pressed(ord("E"));
-	space = keyboard_check_pressed(vk_space);
-	spaceRelease = keyboard_check_released(vk_space);
-	esc = keyboard_check_pressed(vk_escape);
-	restart = keyboard_check_pressed(vk_enter);
-	nextlevel = keyboard_check_pressed(vk_tab)
-	
 	//Mouse
 	mx = device_mouse_x_to_gui(0);
 	my = device_mouse_y_to_gui(0);
@@ -23,6 +11,18 @@ function input() {
 	rmbReleased = mouse_check_button_released(mb_right);
 	wheelUp = mouse_wheel_up();
 	wheelDown = mouse_wheel_down();
+	
+	//Keyboard
+	left = keyboard_check(ord("A")) || keyboard_check(vk_left);
+	down = keyboard_check(ord("S")) || keyboard_check(vk_down);
+	right = keyboard_check(ord("D")) || keyboard_check(vk_right);
+	
+	interact = keyboard_check_pressed(ord("E"));
+	space = keyboard_check_pressed(vk_space) || rmb;
+	spaceRelease = keyboard_check_released(vk_space) || rmbReleased;
+	esc = keyboard_check_pressed(vk_escape);
+	restart = keyboard_check_pressed(vk_enter);
+	nextlevel = keyboard_check_pressed(vk_tab);
 }
 
 function menuInput() {
