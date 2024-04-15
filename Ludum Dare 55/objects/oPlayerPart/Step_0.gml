@@ -16,6 +16,13 @@ if (flyBack) {
 				y = _yy;
 				visible = true;
 				hp = 1;
+				
+				if (wealthX != -1 && wealthY != -1) {
+					var _lantern = instance_create_depth(wealthX, wealthY, depth, oWealthLantern);
+					wealth--;
+					wealthX = -1;
+					wealthY = -1;
+				}
 			}
 			instance_destroy();
 		}

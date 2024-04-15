@@ -1,6 +1,5 @@
 /// @description Init Player
 hp = 1;
-
 //Animation
 image_speed = 0;
 
@@ -39,7 +38,6 @@ animation = {
 	teleImg: [9, 12],
 	deathSpd : 11 / FPS
 }
-
 
 //Movement
 var _movSpd = 3;
