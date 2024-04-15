@@ -63,6 +63,7 @@
     {"id":{"name":"rm17Precisionrequired","path":"rooms/rm17Precisionrequired/rm17Precisionrequired.yy",},},
     {"id":{"name":"oSystem","path":"objects/oSystem/oSystem.yy",},},
     {"id":{"name":"sWealthyLamp","path":"sprites/sWealthyLamp/sWealthyLamp.yy",},},
+    {"id":{"name":"sTitle","path":"sprites/sTitle/sTitle.yy",},},
     {"id":{"name":"sCursor","path":"sprites/sCursor/sCursor.yy",},},
     {"id":{"name":"tl4","path":"tilesets/tl4/tl4.yy",},},
     {"id":{"name":"oCollision","path":"objects/oCollision/oCollision.yy",},},
@@ -136,6 +137,7 @@
     {"id":{"name":"rmEND","path":"rooms/rmEND/rmEND.yy",},},
     {"id":{"name":"LOOP POINTS","path":"notes/LOOP POINTS/LOOP POINTS.yy",},},
     {"id":{"name":"sSpikes","path":"sprites/sSpikes/sSpikes.yy",},},
+    {"id":{"name":"rmTitle","path":"rooms/rmTitle/rmTitle.yy",},},
     {"id":{"name":"oDoor","path":"objects/oDoor/oDoor.yy",},},
     {"id":{"name":"sPlayerThrowCharged","path":"sprites/sPlayerThrowCharged/sPlayerThrowCharged.yy",},},
     {"id":{"name":"sPlayerIdle2","path":"sprites/sPlayerIdle2/sPlayerIdle2.yy",},},
@@ -143,6 +145,7 @@
   ],
   "RoomOrderNodes": [
     {"roomId":{"name":"rmInit","path":"rooms/rmInit/rmInit.yy",},},
+    {"roomId":{"name":"rmTitle","path":"rooms/rmTitle/rmTitle.yy",},},
     {"roomId":{"name":"rm11Corridor","path":"rooms/rm11Corridor/rm11Corridor.yy",},},
     {"roomId":{"name":"rm12Shaft","path":"rooms/rm12Shaft/rm12Shaft.yy",},},
     {"roomId":{"name":"rm13DropAndRise","path":"rooms/rm13DropAndRise/rm13DropAndRise.yy",},},

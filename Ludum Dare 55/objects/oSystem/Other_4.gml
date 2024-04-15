@@ -5,6 +5,9 @@ if (instance_exists(oPlayer)) {
 	x = oPlayer.x;
 	y = oPlayer.y;
 }
+else {
+	x = 0; y = 0;
+}
 
 view_enabled = true;
 view_visible[0] = true;
