@@ -61,7 +61,7 @@ function pTalisman() {
 		
 		//Aim and throw
 		case talisman.aim:
-			var _slowMoFade = 0.9 / (chargeCd * 1.8 * FPS);
+			var _slowMoFade = 0.9 / (chargeCd * 5 * FPS);
 			slowMo = Approach(slowMo, 1.0, _slowMoFade);
 			//Throw
 			if (lmbReleased && !instance_exists(oTalisman)) {

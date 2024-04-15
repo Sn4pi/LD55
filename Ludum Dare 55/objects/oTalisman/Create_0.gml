@@ -10,13 +10,13 @@ animation = {
 };
 
 //Movement
-var _movSpd = 5;
+var _movSpd = 15;
 movement = {
 	spd : 0,
-	throwSpd : 15,
-	slowDown : 10 / (FPS * 1.0),
+	throwSpd : 5,
+	slowDown : 1 / (FPS * 1.0),
 	movSpd : _movSpd,
-	acc : 1.01,
+	acc : 0.96,
 	grav : _movSpd / (sqr(FPS * 0.1))
 }
 accelerate = false;
