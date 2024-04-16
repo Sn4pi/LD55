@@ -161,11 +161,11 @@
     {"roomId":{"name":"rm23Buzzsaws","path":"rooms/rm23Buzzsaws/rm23Buzzsaws.yy",},},
     {"roomId":{"name":"rm24Sawfall","path":"rooms/rm24Sawfall/rm24Sawfall.yy",},},
     {"roomId":{"name":"rm25ThreeBounces","path":"rooms/rm25ThreeBounces/rm25ThreeBounces.yy",},},
+    {"roomId":{"name":"rm31Refillclimb","path":"rooms/rm31Refillclimb/rm31Refillclimb.yy",},},
     {"roomId":{"name":"rm27Sawbridge","path":"rooms/rm27Sawbridge/rm27Sawbridge.yy",},},
     {"roomId":{"name":"rm30timedthrow","path":"rooms/rm30timedthrow/rm30timedthrow.yy",},},
-    {"roomId":{"name":"rm31Refillclimb","path":"rooms/rm31Refillclimb/rm31Refillclimb.yy",},},
-    {"roomId":{"name":"rmEND","path":"rooms/rmEND/rmEND.yy",},},
     {"roomId":{"name":"rm32Finale","path":"rooms/rm32Finale/rm32Finale.yy",},},
+    {"roomId":{"name":"rmEND","path":"rooms/rmEND/rmEND.yy",},},
   ],
   "templateType": "game",
   "TextureGroups": [
