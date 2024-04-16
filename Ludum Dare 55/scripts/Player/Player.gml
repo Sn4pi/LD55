@@ -64,9 +64,6 @@ function pTalisman() {
 		
 		//Aim and throw
 		case talisman.aim:
-
-			var _slowMoFade = 0.9 / (chargeCd * 5 * FPS);
-
 			var _slowMoFade = 1 / (chargeCd * 1.8 * FPS);		//uninteressant / (chargeCd * DAUER * SEKUNDE);
 
 			slowMo = Approach(slowMo, 1.0, _slowMoFade);
@@ -101,7 +98,7 @@ function pTalisman() {
 				else {
 					_talisman.charged = true;
 					audio_play_sound(oMusic.sfx[sound.chargethrow], 1, 0, volSfx);
-					screenshake(FPS * 1, 4, 0.3);
+					screenshake(4, 0.3);
 				}
 				
 				//Animate

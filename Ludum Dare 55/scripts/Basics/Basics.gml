@@ -134,10 +134,8 @@ function draw_text_outline(_x, _y, _str, _outwidth = 1, _outcol = c_black, _outf
 	draw_text(argument0,argument1,argument2);*/
 }
 
-function screenshake(_time, _magnitude, _fade) {
+function screenshake(_magnitude, _fade) {
 	with (oSystem) {
-		shake = true;
-		shakeTime = _time;
 		shakeMagnitude = _magnitude;
 		shakeFade = _fade;
 	}

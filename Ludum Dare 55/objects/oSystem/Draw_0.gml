@@ -15,7 +15,7 @@ draw_set_color(c_white);
 draw_set_font(ft1);
 draw_text(_lanternX, _lanternY, $"{wealth}");
 draw_text(_lanternX2, _lanternY, "19");
-draw_text(_timeX, _timeY, $"{tMin}h {tSec}s {tMilis}ms");
+draw_text(_timeX, _timeY, $"{tMin}min {tSec}s {tMilis}ms");
 
 draw_set_halign(fa_left);
 draw_set_valign(fa_top);

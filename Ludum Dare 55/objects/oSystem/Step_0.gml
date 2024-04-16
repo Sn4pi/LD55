@@ -12,27 +12,13 @@ if (room == rmTitle) {
 	}
 }
 
-if (shake) 
-{ 
-   shakeTime -= 1; 
-   var _xval = choose(-shakeMagnitude, shakeMagnitude); 
-   var _yval = choose(-shakeMagnitude, shakeMagnitude); 
-   camera_set_view_pos(cam, _xval, _yval); 
+//Reposition camera view!
+shakeMagnitude = Approach(shakeMagnitude, 0, shakeFade);
+var _xval = choose(-shakeMagnitude, shakeMagnitude); 
+var _yval = choose(-shakeMagnitude, shakeMagnitude); 
 
-   if (shakeTime <= 0) 
-   { 
-      shakeMagnitude -= shakeFade; 
-
-      if (shakeMagnitude <= 0) 
-      { 
-         camera_set_view_pos(cam, 0, 0); 
-         shake = false; 
-      } 
-   } 
-}
-
-x += (xTo - x) / smooth;
-y += (yTo - y) / smooth;
+x += (xTo - x) / smooth + _xval;
+y += (yTo - y) / smooth + _yval;
 x = round(clamp(x, gameWidth * 0.5, (room_width - gameWidth * 0.5)));
 y = round(clamp(y, gameHeight * 0.6, (room_height - gameHeight * 0.4)));
 
@@ -61,8 +47,7 @@ if (instance_exists(oPlayer)) {
 	dy = oPlayer.y - y;
 }
 
-//Reposition camera view!
-var vm = matrix_build_lookat(x, y, -10, x, y, 0, 0, 1, 0);
+var vm = matrix_build_lookat(x, y, - 10, x, y, 0, 0, 1, 0);
 camera_set_view_mat(cam, vm);
 
 //Resize camera view if needed!
