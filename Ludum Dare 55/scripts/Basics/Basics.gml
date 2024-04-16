@@ -22,7 +22,6 @@ function input() {
 	spaceRelease = keyboard_check_released(vk_space) || rmbReleased;
 	esc = keyboard_check_pressed(vk_escape);
 	restart = mouse_check_button_pressed(mb_left);
-	nextlevel = keyboard_check_pressed(vk_tab);
 }
 
 function menuInput() {

@@ -15,8 +15,8 @@ if (place_meeting(x, y, oDoor) && grounded && lmb) {
 	var _doorDy = oDoor.y - oSystem.y;
 	var _doorXtoGui = (oSystem.gameWidth * 0.5 + _doorDx) / oSystem.zoom;
 	var _doorYtoGui = (oSystem.gameHeight * 0.6 + _doorDy) / oSystem.zoom;
-	if (mx == clamp(mx, _doorXtoGui * oSystem.zoom, (_doorXtoGui + 59) * oSystem.zoom) &&
-		my == clamp(my,_doorYtoGui * oSystem.zoom, (_doorYtoGui + 64) * oSystem.zoom)) {
+	if (mx == clamp(mx, _doorXtoGui * oSystem.zoom, (_doorXtoGui + 59 * 2) * oSystem.zoom) &&
+		my == clamp(my,_doorYtoGui * oSystem.zoom, (_doorYtoGui + 64 * 2) * oSystem.zoom)) {
 		//PLAY SFX
 		if (!audio_is_playing(oMusic.sfx[sound.roomexitt])) audio_play_sound(oMusic.sfx[sound.roomexitt], 1, 0, volSfx);
 		oSystem.fadeOut = true;
@@ -33,8 +33,6 @@ if (hp > 0) {
 
 	//Get damage by spikes
 	if (place_meeting(x, y, oSpikes) || place_meeting(x, y, oBuzzsaw)) pDamage();
-	//Skip Level
-		if (nextlevel) room_goto_next();
 
 }
 
