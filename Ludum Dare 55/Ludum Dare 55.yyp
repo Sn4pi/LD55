@@ -107,6 +107,7 @@
     {"id":{"name":"sPlayerThrow","path":"sprites/sPlayerThrow/sPlayerThrow.yy",},},
     {"id":{"name":"TRACK2","path":"sounds/TRACK2/TRACK2.yy",},},
     {"id":{"name":"rm32Finale","path":"rooms/rm32Finale/rm32Finale.yy",},},
+    {"id":{"name":"ft1","path":"fonts/ft1/ft1.yy",},},
     {"id":{"name":"rm13DropAndRise","path":"rooms/rm13DropAndRise/rm13DropAndRise.yy",},},
     {"id":{"name":"Particles","path":"scripts/Particles/Particles.yy",},},
     {"id":{"name":"rm16JumpnShoot","path":"rooms/rm16JumpnShoot/rm16JumpnShoot.yy",},},
