@@ -8,7 +8,7 @@ if (room == rmTitle) {
 	var _yscl = gameHeight / sprite_get_height(sTitle);
 	draw_sprite_ext(sTitle, titleImg, 0, 0, _xscl, _yscl, 0, c_white, 1);
 	if (titleFade != -1 && titleImg < sprite_get_number(sTitle) - 1) {
-		titleFade = Approach(titleFade, 1, 1 / FPS);
+		titleFade = Approach(titleFade, 1, 1 / (FPS * 0.5));
 		draw_sprite_ext(sTitle, titleImg + 1, 0, 0, _xscl, _yscl, 0, c_white, titleFade);
 		
 		if (titleFade == 1) {

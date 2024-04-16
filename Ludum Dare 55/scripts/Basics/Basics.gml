@@ -93,7 +93,7 @@ function doNothing() {
 	
 }
 
-function draw_text_outline(_x, _y, _str, _outwidth = 1, _outcol = c_black, _outfidelity = 4, _separation = -1, _width = guiW) {
+function draw_text_outline(_x, _y, _str, _outwidth = 1, _outcol = c_black, _outfidelity = 4, _separation = -1, _width = display_get_gui_width()) {
 	//Created by Andrew McCluskey http://nalgames.com/
 	//x,y: Coordinates to draw
 	//str: String to draw

@@ -3,10 +3,7 @@
 draw_sprite_ext(sCursor, 0, device_mouse_x_to_gui(0), device_mouse_y_to_gui(0), 1, 1, 0, c_white, 1);
 
 //Draw Timer
-tMilis = floor(timer mod 100);
-tSec = (timer div 100) mod 60;
-tMin = ((timer div 100) div 60) mod 60;
-draw_text(4, 4, $"{tMin}:{tSec}:{tMilis}");
+//draw_text(4, 4, $"{tMin}:{tSec}:{tMilis}");
 
 //EXIT ROOM #############################################################################
 //Draw Fade
