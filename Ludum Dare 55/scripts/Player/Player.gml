@@ -101,6 +101,7 @@ function pTalisman() {
 				else {
 					_talisman.charged = true;
 					audio_play_sound(oMusic.sfx[sound.chargethrow], 1, 0, volSfx);
+					screenshake(FPS * 1, 4, 0.3);
 				}
 				
 				//Animate

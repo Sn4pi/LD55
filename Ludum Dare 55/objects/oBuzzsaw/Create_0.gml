@@ -14,3 +14,6 @@ enum sawDirection {
 dir = sawDirection.horizontal;
 travel = -1;
 switchCd = FPS * 1.0;
+
+//Play SFX
+audio_play_sound(oMusic.sfx[sound.sawblade], 1, 1, volSfx * random_range(0.8, 0.9), 0, random_range(0.95, 1.05));
