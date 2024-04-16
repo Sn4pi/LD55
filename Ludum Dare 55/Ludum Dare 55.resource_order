@@ -32,6 +32,7 @@
     {"name":"tileset2","order":1,"path":"sprites/tileset2/tileset2.yy",},
     {"name":"rm25ThreeBounces","order":20,"path":"rooms/rm25ThreeBounces/rm25ThreeBounces.yy",},
     {"name":"Player","order":3,"path":"scripts/Player/Player.yy",},
+    {"name":"SAWBLADE","order":10,"path":"sounds/SAWBLADE/SAWBLADE.yy",},
     {"name":"tileset7","order":4,"path":"sprites/tileset7/tileset7.yy",},
     {"name":"rm27Sawbridge","order":19,"path":"rooms/rm27Sawbridge/rm27Sawbridge.yy",},
     {"name":"sPlayerJump2","order":6,"path":"sprites/sPlayerJump2/sPlayerJump2.yy",},

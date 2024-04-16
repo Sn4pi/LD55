@@ -26,6 +26,11 @@ dx = 0;
 dy = 0;
 smooth = 24;
 
+//Screen Shake
+shake = false;
+shakeTime = 0;
+shakeMagnitude = 0;
+shakeFade = 0.25;
 
 //Pixel perfect
 view_wport[0] = 640;
@@ -34,6 +39,8 @@ application_surface_enable(false);
 camera_set_view_size(cam, gameWidth + 1, gameHeight + 1);
 display_set_gui_size(gameWidth, gameHeight);
 viewSurf = -1;
+
+
 
 //Fade Away
 fadeIn = true;

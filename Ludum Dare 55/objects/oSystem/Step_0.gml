@@ -12,6 +12,25 @@ if (room == rmTitle) {
 	}
 }
 
+if (shake) 
+{ 
+   shakeTime -= 1; 
+   var _xval = choose(-shakeMagnitude, shakeMagnitude); 
+   var _yval = choose(-shakeMagnitude, shakeMagnitude); 
+   camera_set_view_pos(cam, _xval, _yval); 
+
+   if (shakeTime <= 0) 
+   { 
+      shakeMagnitude -= shakeFade; 
+
+      if (shakeMagnitude <= 0) 
+      { 
+         camera_set_view_pos(cam, 0, 0); 
+         shake = false; 
+      } 
+   } 
+}
+
 x += (xTo - x) / smooth;
 y += (yTo - y) / smooth;
 x = round(clamp(x, gameWidth * 0.5, (room_width - gameWidth * 0.5)));

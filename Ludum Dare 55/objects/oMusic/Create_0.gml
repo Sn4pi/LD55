@@ -13,10 +13,11 @@ enum sound {
 	step,			//Landing				X
 	teleport,		//Teleport				X
 	throwing,		//Throw					X
-	chargethrow,
-	roomexitt,
+	chargethrow,	//Charge Throw			X
+	roomexitt,		//Room Exit				X
+	sawblade,		//Sawblade				X
 };
-sfx = [Charging, Chime2, SFX_Clap1, SFX_Fall1, SFX_Slash, SFX_Step2, SFX_Teleport3, SFX_Throw,SFX_Chargethrow, roomexit];
+sfx = [Charging, Chime2, SFX_Clap1, SFX_Fall1, SFX_Slash, SFX_Step2, SFX_Teleport3, SFX_Throw, SFX_Chargethrow, roomexit, SAWBLADE];
 
 //Music
 music = [TRACK1, TRACK2, TRACK3, TRACKTITLE];

@@ -53,6 +53,7 @@
     {"id":{"name":"tileset2","path":"sprites/tileset2/tileset2.yy",},},
     {"id":{"name":"rm25ThreeBounces","path":"rooms/rm25ThreeBounces/rm25ThreeBounces.yy",},},
     {"id":{"name":"Player","path":"scripts/Player/Player.yy",},},
+    {"id":{"name":"SAWBLADE","path":"sounds/SAWBLADE/SAWBLADE.yy",},},
     {"id":{"name":"oFuneralLantern","path":"objects/oFuneralLantern/oFuneralLantern.yy",},},
     {"id":{"name":"tileset7","path":"sprites/tileset7/tileset7.yy",},},
     {"id":{"name":"rm27Sawbridge","path":"rooms/rm27Sawbridge/rm27Sawbridge.yy",},},
