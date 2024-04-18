@@ -64,13 +64,8 @@ function pTalisman() {
 		
 		//Aim and throw
 		case talisman.aim:
-			var _slowMoFade = 1 / (chargeCd * 1.8 * FPS);		//uninteressant / (chargeCd * DAUER * SEKUNDE);
-
-			slowMo = Approach(slowMo, 1.0, _slowMoFade);
 			//Throw
 			if (lmbReleased && !instance_exists(oTalisman)) {
-				slowMo = Approach(slowMo, 1.0, _slowMoFade);
-				
 				//PLAY SFX
 				audio_play_sound(oMusic.sfx[sound.throwing], 1, 0, volSfx);
 				
@@ -118,6 +113,42 @@ function pTalisman() {
 	}
 }
 
+function teleportCollision(_len, _dir) {
+	var _oldX = x;
+	var _oldY = y;
+	
+	x = round(x + lengthdir_x(_len, _dir));
+	y = round(y + lengthdir_y(_len, _dir));
+	
+	//Check for collisions (Maximum = Collision Threshhold to decline crashes)
+	var i = 0;
+	var _collisionThreshhold = 100;
+	while (place_meeting(x, y, oCollision) && i < _collisionThreshhold) {
+		i++;
+		
+		
+		var _colObject = collision_rectangle(bbox_left, bbox_top, bbox_right, bbox_bottom, oCollision, 1, 1);
+		if (_colObject != noone) {
+			//Find the middle of colObject
+			var _middleX = _colObject.x + _colObject.sprite_width / 2;
+			var _middleY = _colObject.y + _colObject.sprite_height / 2;
+		
+			//Check where to move the player out of the colObject
+			while (place_meeting(x, y, _colObject)) {
+				var _pushDir = point_direction(_middleX, _middleY, x, y);
+				x += lengthdir_x(1, _pushDir);
+				y += lengthdir_y(1, _pushDir);
+			}
+		}
+	}
+	
+	//Error or impossible position to teleport to
+	if (i == _collisionThreshhold) {
+		x = _oldX;
+		y = _oldY;
+	}
+}
+
 function pAnimation() {
 	//Turn around
 	if (device_mouse_x_to_gui(0) != xToGUI * oSystem.zoom) image_xscale = sign(device_mouse_x_to_gui(0) - xToGUI * oSystem.zoom);
@@ -127,6 +158,7 @@ function pAnimation() {
 	
 	switch (abilityState) {
 		case talisman.aim:
+		#region Aim and Throw
 			if (sprite_index != animation.spr[pSprites.throwNormal] && !charged) {sprite_index = animation.spr[pSprites.throwNormal]; image_index = 0;}
 			else if (sprite_index != animation.spr[pSprites.throwCharged] && charged) {sprite_index = animation.spr[pSprites.throwCharged]; image_index = animation.throwChImg[0];}
 			
@@ -159,11 +191,11 @@ function pAnimation() {
 					
 					if (lmb) abilityState = talisman.thrown;
 				}
-			
+		#endregion
 		break;
 		
 		case talisman.thrown:
-			//Teleport
+		#region Teleport
 			if (sprite_index == animation.spr[pSprites.teleport]) {
 					if (image_index < animation.teleImg[0]) {
 						image_index = Approach(image_index, animation.teleImg[0], animation.teleSpd);
@@ -187,21 +219,11 @@ function pAnimation() {
 						//Talisman cooldown
 						time_source_start(talisReady);
 						
-						//Talisman is on wall
-						var i = _len;
-						var _skip = 0;
-						//How long is there free space?
-						while (i > 0 && !place_meeting(throwX + lengthdir_x(i, _dir), throwY + lengthdir_y(i, _dir), oCollision)) {
-							i--;
-							show_debug_message("FREE");
-						}
+						//Teleportation and collision check
+						teleportCollision(_len, _dir);
 						
-						x = throwX;
-						y = throwY;
-						move_and_collide(lengthdir_x(_len, _dir), lengthdir_y(_len, _dir), oCollision, max(floor(_len) / 10, 10));
-						
-						//PowerUp?
-						var _powerUp = collision_line(throwX, throwY, throwX + lengthdir_x(i, _dir), throwY + lengthdir_y(i, _dir), oPowerupRefill, 1, 1);
+						//PowerUp
+						var _powerUp = collision_line(throwX, throwY, throwX + lengthdir_x(_len, _dir), throwY + lengthdir_y(_len, _dir), oPowerupRefill, 1, 1);
 						if (_powerUp != noone && _powerUp.visible) {
 							if (time_source_get_state(talisReady) == time_source_state_active) time_source_stop(talisReady);
 							with (_powerUp) {
@@ -232,113 +254,115 @@ function pAnimation() {
 					break;
 				}
 			else _noTalisman = true;
-			
+		#endregion
 			
 		default:
 		case talisman.inPocket:
+		#region Idle, Jump, Falling, with Talisman and without
 			switch (_noTalisman) {
-					case false:
-					#region Player HAS the Talisman
-						//Jump - Landing Motion
-						if (grounded && movement.falling) {
-							if (sprite_index != animation.spr[pSprites.jump]) {
-								sprite_index = animation.spr[pSprites.jump];
-								image_index = animation.jumpImg[2];
+				case false:
+				#region Player HAS the Talisman
+					//Jump - Landing Motion
+					if (grounded && movement.falling) {
+						if (sprite_index != animation.spr[pSprites.jump]) {
+							sprite_index = animation.spr[pSprites.jump];
+							image_index = animation.jumpImg[2];
+						}
+						image_index = Approach(image_index, animation.jumpImg[3], animation.jumpSpd);
+						if (image_index == animation.jumpImg[3]) movement.falling = false;
+					}
+					//Idle
+					else if (grounded && !movement.jumpCharge) {
+						if (sprite_index != animation.spr[pSprites.idle]) {sprite_index = animation.spr[pSprites.idle]; image_index = 0;}
+						image_index = Approach(image_index, sprite_get_number(sprite_index), animation.idleSpd);
+					}
+					//Jump Charge
+					else if (movement.jumpCharge) {
+						if (sprite_index != animation.spr[pSprites.jump]) {sprite_index = animation.spr[pSprites.jump]; image_index = 0;}
+						if (animation.jumpBlink == 0) image_index = Approach(image_index, animation.jumpImg[0], animation.jumpSpd);
+						if (image_index == animation.jumpImg[0] || animation.jumpBlink > 0) {
+							animation.jumpBlink = Approach(animation.jumpBlink, 2, 0.1);
+							if (animation.jumpBlink == 1) {
+								image_index = animation.jumpImg[0] - 1;
 							}
-							image_index = Approach(image_index, animation.jumpImg[3], animation.jumpSpd);
-							if (image_index == animation.jumpImg[3]) movement.falling = false;
-						}
-						//Idle
-						else if (grounded && !movement.jumpCharge) {
-							if (sprite_index != animation.spr[pSprites.idle]) {sprite_index = animation.spr[pSprites.idle]; image_index = 0;}
-							image_index = Approach(image_index, sprite_get_number(sprite_index), animation.idleSpd);
-						}
-						//Jump Charge
-						else if (movement.jumpCharge) {
-							if (sprite_index != animation.spr[pSprites.jump]) {sprite_index = animation.spr[pSprites.jump]; image_index = 0;}
-							if (animation.jumpBlink == 0) image_index = Approach(image_index, animation.jumpImg[0], animation.jumpSpd);
-							if (image_index == animation.jumpImg[0] || animation.jumpBlink > 0) {
-								animation.jumpBlink = Approach(animation.jumpBlink, 2, 0.1);
-								if (animation.jumpBlink == 1) {
-									image_index = animation.jumpImg[0] - 1;
-								}
-								else if (animation.jumpBlink == 2) {
-									image_index = animation.jumpImg[0];
-									animation.jumpBlink = 0.1;
-								}
-							}
-						}
-						//Jump - Up Motion
-						else if (movement.vspd <= -0.2) {
-							animation.jumpBlink = 0;
-							if (sprite_index != animation.spr[pSprites.jump]) {
-								sprite_index = animation.spr[pSprites.jump];
+							else if (animation.jumpBlink == 2) {
 								image_index = animation.jumpImg[0];
+								animation.jumpBlink = 0.1;
 							}
-							image_index = Approach(image_index, animation.jumpImg[1], animation.jumpSpd);
 						}
-						// Jump - Down Motion
-						else if (movement.vspd > -0.2) {
-							if (sprite_index != animation.spr[pSprites.jump]) {
-								sprite_index = animation.spr[pSprites.jump];
-								image_index = animation.jumpImg[1];
-							}
-							image_index = Approach(image_index, animation.jumpImg[2], animation.jumpSpd);
+					}
+					//Jump - Up Motion
+					else if (movement.vspd <= -0.2) {
+					animation.jumpBlink = 0;
+						if (sprite_index != animation.spr[pSprites.jump]) {
+							sprite_index = animation.spr[pSprites.jump];
+							image_index = animation.jumpImg[0];
 						}
+						image_index = Approach(image_index, animation.jumpImg[1], animation.jumpSpd);
+					}
+					// Jump - Down Motion
+					else if (movement.vspd > -0.2) {
+						if (sprite_index != animation.spr[pSprites.jump]) {
+							sprite_index = animation.spr[pSprites.jump];
+							image_index = animation.jumpImg[1];
+						}
+						image_index = Approach(image_index, animation.jumpImg[2], animation.jumpSpd);
+					}
 					#endregion
-					break;
-					
-					case true:
-					#region Player has NO Talisman
-						//Jump - Landing Motion
-						if (grounded && movement.falling) {
-							if (sprite_index != animation.spr[pSprites.jump2]) {
-								sprite_index = animation.spr[pSprites.jump2];
-								image_index = animation.jumpImg[2];
+				break;
+				
+				case true:
+				#region Player has NO Talisman
+					//Jump - Landing Motion
+					if (grounded && movement.falling) {
+						if (sprite_index != animation.spr[pSprites.jump2]) {
+							sprite_index = animation.spr[pSprites.jump2];
+							image_index = animation.jumpImg[2];
+						}
+						image_index = Approach(image_index, animation.jumpImg[3], animation.jumpSpd);
+						if (image_index == animation.jumpImg[3]) movement.falling = false;
+					}
+					//Idle
+					else if (grounded && !movement.jumpCharge) {
+						if (sprite_index != animation.spr[pSprites.idle2]) {sprite_index = animation.spr[pSprites.idle2]; image_index = 0;}
+						image_index = Approach(image_index, sprite_get_number(sprite_index), animation.idleSpd);
+					}
+					//Jump Charge
+					else if (movement.jumpCharge) {
+						if (sprite_index != animation.spr[pSprites.jump2]) {sprite_index = animation.spr[pSprites.jump2]; image_index = 0;}
+						if (animation.jumpBlink == 0) image_index = Approach(image_index, animation.jumpImg[0], animation.jumpSpd);
+						if (image_index == animation.jumpImg[0] || animation.jumpBlink > 0) {
+							animation.jumpBlink = Approach(animation.jumpBlink, 2, 0.1);
+							if (animation.jumpBlink == 1) {
+								image_index = animation.jumpImg[0] - 1;
 							}
-							image_index = Approach(image_index, animation.jumpImg[3], animation.jumpSpd);
-							if (image_index == animation.jumpImg[3]) movement.falling = false;
-						}
-						//Idle
-						else if (grounded && !movement.jumpCharge) {
-							if (sprite_index != animation.spr[pSprites.idle2]) {sprite_index = animation.spr[pSprites.idle2]; image_index = 0;}
-							image_index = Approach(image_index, sprite_get_number(sprite_index), animation.idleSpd);
-						}
-						//Jump Charge
-						else if (movement.jumpCharge) {
-							if (sprite_index != animation.spr[pSprites.jump2]) {sprite_index = animation.spr[pSprites.jump2]; image_index = 0;}
-							if (animation.jumpBlink == 0) image_index = Approach(image_index, animation.jumpImg[0], animation.jumpSpd);
-							if (image_index == animation.jumpImg[0] || animation.jumpBlink > 0) {
-								animation.jumpBlink = Approach(animation.jumpBlink, 2, 0.1);
-								if (animation.jumpBlink == 1) {
-									image_index = animation.jumpImg[0] - 1;
-								}
-								else if (animation.jumpBlink == 2) {
-									image_index = animation.jumpImg[0];
-									animation.jumpBlink = 0.1;
-								}
-							}
-						}
-						//Jump - Up Motion
-						else if (movement.vspd <= 0) {
-							animation.jumpBlink = 0;
-							if (sprite_index != animation.spr[pSprites.jump2]) {
-								sprite_index = animation.spr[pSprites.jump2];
+							else if (animation.jumpBlink == 2) {
 								image_index = animation.jumpImg[0];
+								animation.jumpBlink = 0.1;
 							}
-							image_index = Approach(image_index, animation.jumpImg[1], animation.jumpSpd);
 						}
-						// Jump - Down Motion
-						else if (movement.vspd > 0) {
-							if (sprite_index != animation.spr[pSprites.jump2]) {
-								sprite_index = animation.spr[pSprites.jump2];
-								image_index = animation.jumpImg[1];
-							}
-							image_index = Approach(image_index, animation.jumpImg[2], animation.jumpSpd);
+					}
+					//Jump - Up Motion
+					else if (movement.vspd <= 0) {
+						animation.jumpBlink = 0;
+						if (sprite_index != animation.spr[pSprites.jump2]) {
+							sprite_index = animation.spr[pSprites.jump2];
+							image_index = animation.jumpImg[0];
 						}
-					#endregion
-					break;
-				}
+						image_index = Approach(image_index, animation.jumpImg[1], animation.jumpSpd);
+					}
+					// Jump - Down Motion
+					else if (movement.vspd > 0) {
+						if (sprite_index != animation.spr[pSprites.jump2]) {
+							sprite_index = animation.spr[pSprites.jump2];
+							image_index = animation.jumpImg[1];
+						}
+						image_index = Approach(image_index, animation.jumpImg[2], animation.jumpSpd);
+					}
+				#endregion
+				break;
+			}
+		#endregion
 		break;
 	}
 }

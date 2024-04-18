@@ -10,7 +10,7 @@ pAnimation();
 checkGrounded();
 
 //Goto next level
-if (place_meeting(x, y, oDoor) && grounded && lmb) {
+if (distance_to_object(oDoor) <= 8 && grounded && lmb) {
 	var _doorDx = oDoor.x - oSystem.x;
 	var _doorDy = oDoor.y - oSystem.y;
 	var _doorXtoGui = (oSystem.gameWidth * 0.5 + _doorDx) / oSystem.zoom;
