@@ -72,7 +72,6 @@
     {"name":"SFX_Clap1","order":2,"path":"sounds/SFX_Clap1/SFX_Clap1.yy",},
     {"name":"tileset3","order":2,"path":"sprites/tileset3/tileset3.yy",},
     {"name":"oPowerupRefill","order":1,"path":"objects/oPowerupRefill/oPowerupRefill.yy",},
-    {"name":"sPlayerDeath","order":1,"path":"sprites/sPlayerDeath/sPlayerDeath.yy",},
     {"name":"sHudThrow","order":2,"path":"sprites/sHudThrow/sHudThrow.yy",},
     {"name":"rm24Sawfall","order":13,"path":"rooms/rm24Sawfall/rm24Sawfall.yy",},
     {"name":"tl3","order":2,"path":"tilesets/tl3/tl3.yy",},

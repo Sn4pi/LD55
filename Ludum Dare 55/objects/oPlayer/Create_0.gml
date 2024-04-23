@@ -10,8 +10,7 @@ enum pSprites {
 	jump2 = 3,
 	throwNormal = 4,
 	throwCharged = 5,
-	teleport = 6,
-	death = 7
+	teleport = 6
 };
 
 animation = {
@@ -22,8 +21,7 @@ animation = {
 		sPlayerJump2,
 		sPlayerThrow,
 		sPlayerThrowCharged,
-		sPlayerTeleport,
-		sPlayerDeath
+		sPlayerTeleport
 	],
 	idleSpd : 6 / FPS,
 	jumpSpd : 20 / FPS,

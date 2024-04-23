@@ -114,39 +114,37 @@ function pTalisman() {
 }
 
 function teleportCollision(_len, _dir) {
+	_len = ceil(_len);
+	var _anchorX = sprite_get_xoffset(sprite_index);
+	var _anchorY = sprite_get_yoffset(sprite_index);
 	var _oldX = x;
 	var _oldY = y;
+	var _targetX = x + lengthdir_x(_len, _dir);
+	var _targetY = y + lengthdir_y(_len, _dir);
 	
-	x = round(x + lengthdir_x(_len, _dir));
-	y = round(y + lengthdir_y(_len, _dir));
-	
-	//Check for collisions (Maximum = Collision Threshhold to decline crashes)
-	var i = 0;
-	var _collisionThreshhold = 100;
-	while (place_meeting(x, y, oCollision) && i < _collisionThreshhold) {
-		i++;
-		
-		
-		var _colObject = collision_rectangle(bbox_left, bbox_top, bbox_right, bbox_bottom, oCollision, 1, 1);
-		if (_colObject != noone) {
-			//Find the middle of colObject
-			var _middleX = _colObject.x + _colObject.sprite_width / 2;
-			var _middleY = _colObject.y + _colObject.sprite_height / 2;
-		
-			//Check where to move the player out of the colObject
-			while (place_meeting(x, y, _colObject)) {
-				var _pushDir = point_direction(_middleX, _middleY, x, y);
-				x += lengthdir_x(1, _pushDir);
-				y += lengthdir_y(1, _pushDir);
-			}
-		}
+	//No collision? JUST MOVE
+	if (!place_meeting(x + lengthdir_x(_len, _dir), y + lengthdir_y(_len, _dir), oCollision)) {
+		x = _targetX;
+		y = _targetY;
+		exit;
 	}
 	
-	//Error or impossible position to teleport to
-	if (i == _collisionThreshhold) {
-		x = _oldX;
-		y = _oldY;
-	}
+	//Check when you hit the wall
+	while (place_meeting(x + lengthdir_x(_len, _dir), y + lengthdir_y(_len, _dir), oCollision)) _len--;
+	x = x + lengthdir_x(_len, _dir);
+	y = y + lengthdir_y(_len, _dir);
+	show_debug_message("Moved till collision with wall");
+	
+	//Slide on the wall to adjust horizontally or vertically
+	//Horizontal
+	while (place_meeting(_targetX, y, oCollision)) _targetX = Approach(_targetX, x, 1);
+	show_debug_message("Horizontal Check");
+	//Vertical
+	while (place_meeting(x, _targetY, oCollision)) _targetY = Approach(_targetY, y, 1);
+	show_debug_message("Vertical Check");
+	
+	x = _targetX;
+	y = _targetY;
 }
 
 function pAnimation() {

@@ -48,6 +48,7 @@ if (!charged) {
 	//Fall down
 	else {
 		image_angle = 0;
+		direction = 270;
 		movement.spd = Approach(movement.spd, movement.movSpd, movement.grav);
 	}
 }
@@ -60,7 +61,9 @@ else {
 	var _yy = oPlayer.y;
 	
 	var i = 1000;
+	var _colObj = noone;
 	while (i > 0 && collision_line(x, y, x + lengthdir_x(i, direction), y + lengthdir_y(i, direction), oCollision, 1, 1)) {
+		_colObj = collision_line(x, y, x + lengthdir_x(i, direction), y + lengthdir_y(i, direction), oCollision, 1, 1);
 		i--;
 	}
 	if (collision_line(x, y, x + lengthdir_x(i, direction), y + lengthdir_y(i, direction), oFuneralLantern, 1, 1)) {
@@ -68,8 +71,8 @@ else {
 		die();
 		exit;
 	}
-	x = x + lengthdir_x(i, direction);
-	y = y + lengthdir_y(i, direction);
+	x = round(x + lengthdir_x(i, direction));
+	y = round(y + lengthdir_y(i, direction));
 	
 	//PARTICLES
 	if (!collision) {
@@ -81,6 +84,8 @@ else {
 	}
 	
 	collision = true;
+	collisionObj = _colObj;
+	
 }
 
 //No collision -> MOVE
@@ -91,22 +96,27 @@ if (!collision_line(x, y, x + lengthdir_x(movement.spd, direction), y + lengthdi
 //Collision -> Iterate and stop right at wall
 else {
 	var i = ceil(max(movement.spd, 10));
-	var _wall = collision_line(x, y, x + lengthdir_x(i, direction), y + lengthdir_y(i, direction), oCollision, 1, 1);
+	var _colObj = collision_line(x, y, x + lengthdir_x(i, direction), y + lengthdir_y(i, direction), oCollision, 1, 1);
 	
-	while (i > 0 && collision_line(x, y, x + lengthdir_x(i, direction), y + lengthdir_y(i, direction), oCollision, 1, 1)) {
+	while (i > 0 && place_meeting(x + lengthdir_x(i, direction), y + lengthdir_y(i, direction), oCollision)) {
+		_colObj = collision_line(x, y, x + lengthdir_x(i, direction), y + lengthdir_y(i, direction), oCollision, 1, 1);
 		i--;
 	}
 	x = x + lengthdir_x(i, direction);
 	y = y + lengthdir_y(i, direction);
 	
-	//Check which kind of wall it is
-	if (_wall.object_index == oBouncyWall) {
+	//Bounce of the wall
+	if (_colObj != noone && _colObj.object_index == oBouncyWall) {
 		movement.spd = movement.movSpd;
-		if (place_meeting(x + 1, y, _wall) || place_meeting(x - 1, y, _wall)) direction = -direction + 180;
-		else if (place_meeting(x, y + 1, _wall) || place_meeting(x, y - 1, _wall)) direction = -direction;
+		if (place_meeting(x + 1, y, _colObj) || place_meeting(x - 1, y, _colObj)) direction = -direction + 180;
+		else if (place_meeting(x, y + 1, _colObj) || place_meeting(x, y - 1, _colObj)) direction = -direction;
 	}
+	
 	else {
+		x = round(x);
+		y = round(y);
 		movement.spd = 0;
 		collision = true;
+		collisionObj = _colObj;
 	}
 }

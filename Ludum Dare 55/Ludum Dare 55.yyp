@@ -101,7 +101,6 @@
     {"id":{"name":"tl1","path":"tilesets/tl1/tl1.yy",},},
     {"id":{"name":"tileset3","path":"sprites/tileset3/tileset3.yy",},},
     {"id":{"name":"oPowerupRefill","path":"objects/oPowerupRefill/oPowerupRefill.yy",},},
-    {"id":{"name":"sPlayerDeath","path":"sprites/sPlayerDeath/sPlayerDeath.yy",},},
     {"id":{"name":"sHudThrow","path":"sprites/sHudThrow/sHudThrow.yy",},},
     {"id":{"name":"rm24Sawfall","path":"rooms/rm24Sawfall/rm24Sawfall.yy",},},
     {"id":{"name":"tl3","path":"tilesets/tl3/tl3.yy",},},
@@ -149,6 +148,7 @@
     {"roomId":{"name":"rmInit","path":"rooms/rmInit/rmInit.yy",},},
     {"roomId":{"name":"rmTitle","path":"rooms/rmTitle/rmTitle.yy",},},
     {"roomId":{"name":"rm11Corridor","path":"rooms/rm11Corridor/rm11Corridor.yy",},},
+    {"roomId":{"name":"rmTestChamber","path":"rooms/rmTestChamber/rmTestChamber.yy",},},
     {"roomId":{"name":"rm12Shaft","path":"rooms/rm12Shaft/rm12Shaft.yy",},},
     {"roomId":{"name":"rm13DropAndRise","path":"rooms/rm13DropAndRise/rm13DropAndRise.yy",},},
     {"roomId":{"name":"rm14Stairs","path":"rooms/rm14Stairs/rm14Stairs.yy",},},
@@ -168,7 +168,6 @@
     {"roomId":{"name":"rm30timedthrow","path":"rooms/rm30timedthrow/rm30timedthrow.yy",},},
     {"roomId":{"name":"rm32Finale","path":"rooms/rm32Finale/rm32Finale.yy",},},
     {"roomId":{"name":"rmEND","path":"rooms/rmEND/rmEND.yy",},},
-    {"roomId":{"name":"rmTestChamber","path":"rooms/rmTestChamber/rmTestChamber.yy",},},
   ],
   "templateType": "game",
   "TextureGroups": [

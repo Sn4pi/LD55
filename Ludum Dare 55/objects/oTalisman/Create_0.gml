@@ -23,6 +23,7 @@ accelerate = false;
 chargeStages = 0;
 charged = false;
 collision = false;
+collisionObj = noone;
 
 //Die after specific time
 die = function() {
